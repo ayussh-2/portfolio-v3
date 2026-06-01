@@ -26,9 +26,12 @@ export default function About() {
             <div>
                 <p className="para">{subHeading}</p>
 
-                <ul className="mt-4  text-zinc-600 dark:text-zinc-300 list-disc pl-10 para">
+                <ul className="mt-4  text-zinc-600 dark:text-zinc-300 pl-8 para">
                     {about.map((abt, index) => (
-                        <li key={index}>{abt}</li>
+                        <li key={index} className="flex gap-2">
+                            <span>•</span>
+                            {abt}
+                        </li>
                     ))}
                 </ul>
             </div>
@@ -62,6 +65,7 @@ export default function About() {
                 <div className="flex items-center gap-2 mt-5">
                     {SOCIALS.map(({ id, Icon, link, title }) => (
                         <SoftPillButton
+                            key={id}
                             id={id}
                             onClick={() => handleRedirect(link)}
                             className="text-xs  px-3 py-2"
