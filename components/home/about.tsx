@@ -1,29 +1,35 @@
+"use client";
+
 import {
   File,
   Mail,
 } from 'lucide-react';
+import { useTheme } from 'next-themes';
+
+import {
+  about,
+  handleRedirect,
+  MAIL,
+  RESUME,
+  SOCIALS,
+  subHeading,
+} from '@/config';
 
 import SoftPillButton from '../pixel-perfect/soft-pill-button';
 
 export default function About() {
+    const { resolvedTheme } = useTheme();
+    const iconColor = resolvedTheme === "dark" ? "#fff" : "#000";
+
     return (
         <section className="px-3 text-sm sm:text-base text-zinc-700 dark:text-zinc-200">
             <div>
-                <p className="para">
-                    Engineer. I build full-stack systems and developer tools.
-                </p>
+                <p className="para">{subHeading}</p>
 
                 <ul className="mt-4  text-zinc-600 dark:text-zinc-300 list-disc pl-10 para">
-                    <li>
-                        B.Tech, Civil Engineering at NIT Rourkela (2023-2027).
-                    </li>
-                    <li>
-                        Interned at Soundpark, ScanKart AI, and Pariksit Inc,
-                        shipping backend and product features.
-                    </li>
-                    <li>
-                        Lead organizer for GDG on Campus NITR and HackNITR 7.0.
-                    </li>
+                    {about.map((abt, index) => (
+                        <li key={index}>{abt}</li>
+                    ))}
                 </ul>
             </div>
 
@@ -31,6 +37,7 @@ export default function About() {
                 <SoftPillButton
                     variant={"secondary"}
                     className="text-xs px-3 py-2"
+                    onClick={() => handleRedirect(RESUME)}
                 >
                     <div className="flex items-center gap-1">
                         <File size={12} /> Resume
@@ -39,11 +46,33 @@ export default function About() {
                 <SoftPillButton
                     variant={"primary"}
                     className="text-xs  px-3 py-2"
+                    onClick={() => handleRedirect(MAIL)}
                 >
                     <div className="flex items-center gap-1">
                         <Mail size={12} /> Send an email ?
                     </div>
                 </SoftPillButton>
+            </div>
+
+            <div className="mb-5">
+                <p className="para ">
+                    <span className="opacity-80">Here are my </span>
+                    <span className="dark:text-white opacity-100">socials</span>
+                </p>
+                <div className="flex items-center gap-2 mt-5">
+                    {SOCIALS.map(({ id, Icon, link, title }) => (
+                        <SoftPillButton
+                            id={id}
+                            onClick={() => handleRedirect(link)}
+                            className="text-xs  px-3 py-2"
+                        >
+                            <div className="flex items-center gap-2">
+                                <Icon color={iconColor} size={15} />
+                                {title}
+                            </div>
+                        </SoftPillButton>
+                    ))}
+                </div>
             </div>
         </section>
     );

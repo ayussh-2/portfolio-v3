@@ -6,7 +6,7 @@ export function SeperatorInline({ className }: SeperatorInlineProps) {
     return (
         <div
             aria-hidden="true"
-            className={`relative left-1/2 w-screen -translate-x-1/2 h-0 border-b border-black/30 dark:border-white/[0.15] pointer-events-none seperator ${className ?? ""}`}
+            className={`relative left-1/2 w-screen -translate-x-1/2 h-0 border-b border-black/30 dark:border-white/[0.15] border-dashed  pointer-events-none seperator ${className ?? ""}`}
         ></div>
     );
 }

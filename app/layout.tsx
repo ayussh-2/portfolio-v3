@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 import {
   geistMono,
   geistSans,
@@ -32,6 +33,12 @@ export default function RootLayout({
                     disableTransitionOnChange={false}
                 >
                     {children}
+                    <Toaster
+                        className="font-sans"
+                        style={{
+                            fontFamily: "var(--font-sans)",
+                        }}
+                    />
                 </ThemeProvider>
             </body>
         </html>
