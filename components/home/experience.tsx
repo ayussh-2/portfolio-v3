@@ -1,32 +1,32 @@
 "use client";
 
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 
-import { EXPERIENCE } from '@/config';
+import { EXPERIENCE } from "@/config";
 import {
-  AmazonwebservicesOriginalWordmarkIcon,
-  ChromePlainIcon,
-  FlaskOriginalIcon,
-  GraphqlPlainIcon,
-  NextjsOriginalIcon,
-  NginxOriginalIcon,
-  NodejsOriginalIcon,
-  PhpPlainIcon,
-  ReactOriginalIcon,
-  RedisOriginalIcon,
-  SocketioOriginalIcon,
-  SqlitePlainIcon,
-  TypescriptOriginalIcon,
-} from '@devicon/react';
+    AmazonwebservicesOriginalWordmarkIcon,
+    ChromePlainIcon,
+    FlaskOriginalIcon,
+    GraphqlPlainIcon,
+    NextjsOriginalIcon,
+    NginxOriginalIcon,
+    NodejsOriginalIcon,
+    PhpPlainIcon,
+    ReactOriginalIcon,
+    RedisOriginalIcon,
+    SocketioOriginalIcon,
+    SqlitePlainIcon,
+    TypescriptOriginalIcon,
+} from "@devicon/react";
 
 import {
-  Accordion,
-  AccordionItem,
-  AccordionPanel,
-  AccordionTrigger,
-} from '../ui/accordion';
-import { SeperatorInline } from '../ui/seperator';
-import { Avatar } from './hero';
+    Accordion,
+    AccordionItem,
+    AccordionPanel,
+    AccordionTrigger,
+} from "../ui/accordion";
+import { Avatar } from "./hero";
+import { SeperatorInline } from "../ui/seperator";
 
 const techStackIcons: Record<
     string,
@@ -65,22 +65,22 @@ function ExperienceItem({
 }: ExperienceItemProps) {
     return (
         <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 min-w-0 flex-1">
                 <Avatar url={logo as string} size="sm" />
-                <div className="flex flex-col gap-0.5">
-                    <h2 className="text-[17px] font-bold text-zinc-900 dark:text-zinc-100">
+                <div className="flex flex-col gap-0.5 min-w-0">
+                    <h2 className="text-[17px] font-bold text-zinc-900 dark:text-zinc-100 truncate">
                         {company}
                     </h2>
-                    <span className="text-[15px] text-zinc-600 dark:text-zinc-400">
+                    <span className="text-[15px] text-zinc-600 dark:text-zinc-400 truncate">
                         {role}
                     </span>
                 </div>
             </div>
-            <div className="flex flex-col items-end">
-                <h2 className="text-[15px] text-zinc-900 dark:text-zinc-100">
+            <div className="flex flex-col items-end shrink-0">
+                <h2 className="text-[15px] text-zinc-900 dark:text-zinc-100 whitespace-nowrap">
                     {duration}
                 </h2>
-                <h2 className="text-[14px] text-zinc-500 dark:text-zinc-400">
+                <h2 className="text-[14px] text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
                     {location}
                 </h2>
             </div>
@@ -91,12 +91,14 @@ function ExperienceItem({
 type ExperienceDetailProps = {
     details: string[];
     techStack: string[];
+    iconColor: string;
 };
 
-function ExperienceDetail({ details, techStack }: ExperienceDetailProps) {
-    const { resolvedTheme } = useTheme();
-    const iconColor = resolvedTheme === "dark" ? "#fff" : "#000";
-
+function ExperienceDetail({
+    details,
+    techStack,
+    iconColor,
+}: ExperienceDetailProps) {
     return (
         <div>
             <ul className="mb-4 space-y-2 text-[13px] leading-relaxed list-disc pl-5">
@@ -122,6 +124,7 @@ function ExperienceDetail({ details, techStack }: ExperienceDetailProps) {
                                         size={14}
                                         // @ts-ignore
                                         color={iconColor}
+                                        fill={iconColor}
                                     />
                                 ) : null}
                                 <span className="text-[11px] font-medium text-zinc-600 dark:text-zinc-400">
@@ -136,7 +139,7 @@ function ExperienceDetail({ details, techStack }: ExperienceDetailProps) {
     );
 }
 
-export default function Experience() {
+export default function Experience({ iconColor }: { iconColor: string }) {
     return (
         <section>
             <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2! px-3">
@@ -157,6 +160,7 @@ export default function Experience() {
                             <ExperienceDetail
                                 details={exp.details}
                                 techStack={exp.techStack}
+                                iconColor={iconColor}
                             />
                         </AccordionPanel>
                     </AccordionItem>

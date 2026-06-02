@@ -220,6 +220,8 @@
 @layer base {
     * {
         @apply border-border outline-ring/50;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
     body {
         @apply bg-background text-foreground;
@@ -235,4 +237,13 @@
     .para {
         @apply text-[14px] sm:text-[15px] text-zinc-600 dark:text-zinc-300 leading-relaxed mt-4;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }

@@ -1,26 +1,20 @@
 "use client";
 
-import {
-  File,
-  Mail,
-} from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { File, Mail } from "lucide-react";
+import { useTheme } from "next-themes";
 
 import {
-  about,
-  handleRedirect,
-  MAIL,
-  RESUME,
-  SOCIALS,
-  subHeading,
-} from '@/config';
+    about,
+    handleRedirect,
+    MAIL,
+    RESUME,
+    SOCIALS,
+    subHeading,
+} from "@/config";
 
-import SoftPillButton from '../pixel-perfect/soft-pill-button';
+import SoftPillButton from "../pixel-perfect/soft-pill-button";
 
-export default function About() {
-    const { resolvedTheme } = useTheme();
-    const iconColor = resolvedTheme === "dark" ? "#fff" : "#000";
-
+export default function About({ iconColor }: { iconColor: string }) {
     return (
         <section className="px-3 text-sm sm:text-base text-zinc-700 dark:text-zinc-200">
             <div>

@@ -1,11 +1,11 @@
-import { Command } from 'lucide-react';
-import Image from 'next/image';
+import { Command } from "lucide-react";
+import Image from "next/image";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
-import { ModeToggle } from '../toggle';
-import { Button } from '../ui/button';
-import { FlipWords } from '../ui/flip-words';
+import { Button } from "../ui/button";
+import { FlipWords } from "../ui/flip-words";
+import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
 
 const avatarSizes = {
     xs: { class: "w-10 h-10 sm:w-12 sm:h-12", px: 44 },
@@ -86,7 +86,9 @@ export default function Hero() {
                     <Command /> K
                 </Button>
 
-                <ModeToggle />
+                <AnimatedThemeToggler duration={500} />
+
+                {/* <ModeToggle /> */}
             </div>
         </section>
     );

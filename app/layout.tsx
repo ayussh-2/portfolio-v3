@@ -1,13 +1,11 @@
-import './globals.css';
+import "./globals.css";
 
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/sonner';
-import {
-  geistMono,
-  geistSans,
-} from '@/fonts';
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
+import { geistMono, geistSans } from "@/fonts";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -32,13 +30,15 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange={false}
                 >
-                    {children}
-                    <Toaster
-                        className="font-sans"
-                        style={{
-                            fontFamily: "var(--font-sans)",
-                        }}
-                    />
+                    <TooltipProvider>
+                        {children}
+                        <Toaster
+                            className="font-sans"
+                            style={{
+                                fontFamily: "var(--font-sans)",
+                            }}
+                        />
+                    </TooltipProvider>
                 </ThemeProvider>
             </body>
         </html>

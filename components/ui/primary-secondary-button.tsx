@@ -1,12 +1,8 @@
-import React, * as React from 'react';
+// @ts-nocheck
+import { cva, type VariantProps } from "class-variance-authority";
 
-import {
-  cva,
-  type VariantProps,
-} from 'class-variance-authority';
-
-import { cn } from '@/lib/utils';
-import { Slot } from '@radix-ui/react-slot';
+import { cn } from "@/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
 
 type Variant = "primary" | "secondary";
 
@@ -293,9 +289,9 @@ function SecondaryButton(props: PrimarySecondaryButtonProps) {
 }
 
 export {
-  PrimaryButton,
-  PrimarySecondaryButton,
-  type PrimarySecondaryButtonProps,
-  primarySecondaryButtonVariants,
-  SecondaryButton,
+    PrimaryButton,
+    PrimarySecondaryButton,
+    type PrimarySecondaryButtonProps,
+    primarySecondaryButtonVariants,
+    SecondaryButton,
 };

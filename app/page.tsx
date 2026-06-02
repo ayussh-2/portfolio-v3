@@ -1,22 +1,41 @@
-import About from '@/components/home/about';
-import Banner from '@/components/home/banner';
-import Experience from '@/components/home/experience';
-import Hero from '@/components/home/hero';
-import Intersection2 from '@/components/pixel-perfect/intersection2';
-import { SeperatorInline } from '@/components/ui/seperator';
+"use client";
+import About from "@/components/home/about";
+import Banner from "@/components/home/banner";
+import Experience from "@/components/home/experience";
+import Hero from "@/components/home/hero";
+import Projects from "@/components/home/projects";
+import Intersection2 from "@/components/pixel-perfect/intersection2";
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import { SeperatorInline } from "@/components/ui/seperator";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+    const { theme } = useTheme();
+    const [color, setColor] = useState("");
+    useEffect(() => {
+        if (theme == "dark") setColor("#d4d4d8");
+        else setColor("#3f3f46");
+    }, [theme]);
     return (
         <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
             <Intersection2>
-                <Banner />
-                <SeperatorInline />
-                <Hero />
-                <SeperatorInline />
-                <About />
-                <SeperatorInline />
-                <Experience />
-                <SeperatorInline />
+                <div className="relative min-h-screen w-full overflow-visible">
+                    {/* <ProgressiveBlur height="70px" position="top" /> */}
+
+                    <Banner />
+                    <SeperatorInline />
+                    <Hero />
+                    <SeperatorInline />
+                    <About iconColor={color} />
+                    <SeperatorInline />
+                    <Experience iconColor={color} />
+                    <SeperatorInline />
+                    <Projects iconColor={color} />
+                    <SeperatorInline />
+                    <div className="h-16"></div>
+                    <ProgressiveBlur height="70px" position="bottom" />
+                </div>
             </Intersection2>
         </main>
     );
