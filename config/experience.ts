@@ -5,10 +5,20 @@ export type ExperienceItem = {
     duration: string;
     location: string;
     details: string[];
-    techStack: string[];
+    techStack?: string[];
 };
 
 export const EXPERIENCE: ExperienceItem[] = [
+    {
+        logo: "https://github.com/dscnitrourkela.png",
+        role: "Lead Organizer",
+        company: "GDG on Campus NIT Rourkela",
+        duration: "Sep 25 – Present",
+        location: "Rourkela, Odisha",
+        details: [
+            "Enhancing and promoting the tech culture on campus by organizing impactful sessions and events. Leading the chapter of 30+ members and community of 800+ students to work towards goals that improve and promote community service, development, and unity.",
+        ],
+    },
     {
         logo: "https://ik.imagekit.io/euurqxbuc/portfolio/1754588090599_e=1782345600&v=beta&t=E9S9xAOTb4socPFx318O-ZdrhXq65myHK30CtIsTung",
         role: "Software Engineer Intern",

@@ -4,6 +4,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1740945980/zh92s15jq4lh3bg2er4c.png", // projectImages[0]
         title: "Mello Notes",
+        slug: "mello-notes",
+        category: "personal",
         shortDesc:
             "AI-powered note-taking app built with React Native and Expo for effortless management.",
         techStack: [
@@ -23,6 +25,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1780432218/Screenshot_2026-06-03_015829_e88npg.png", // projectImages[0]
         title: "Plastrack",
+        slug: "plastrack",
+        category: "hackathons",
         shortDesc:
             "A comprehensive waste management and infrastructure solution that uses AI to identify, classify, and suggest sustainable reuse of waste materials.",
         techStack: [
@@ -42,6 +46,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1740944964/xj81ocg9jyebsb2c5yvn.png", // projectImages[0]
         title: "Chatuu",
+        slug: "chatuu",
+        category: "personal",
         shortDesc:
             "Modern real-time chat application designed for seamless and secure communication.",
         techStack: [
@@ -61,6 +67,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1740940653/cs6akl40j7wbqnhk2iyz.webp", // projectImages[0]
         title: "PARIKSIT Mark Manager",
+        slug: "pariksit-mark-manager",
+        category: "personal",
         shortDesc:
             "Comprehensive solution for mark management, test generation, and report card creation.",
         techStack: [
@@ -79,6 +87,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1740940904/ycpplm8ycadvjulb6fhw.webp", // projectImages[0]
         title: "Sthitivartana",
+        slug: "sthitivartana",
+        category: "hackathons",
         shortDesc:
             "Collaborative project for the AICHE Student Regional Council event.",
         techStack: [
@@ -95,6 +105,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1760166844/screenshot_sxk2xn.png", // projectImages[0]
         title: "Project Huckleberry",
+        slug: "project-huckleberry",
+        category: "community",
         shortDesc:
             "Official website for Google Developer Group on Campus NIT Rourkela.",
         techStack: [
@@ -111,6 +123,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1760166017/Screenshot_2025-10-11_123004_o7clnq.png", // projectImages[0]
         title: "HackOdisha 5.0",
+        slug: "hackodisha-5-0",
+        category: "hackathons",
         shortDesc: "Platform for one of eastern India’s largest hackathons.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
@@ -126,6 +140,8 @@ export const PROJECTS = [
     {
         image: "https://res.cloudinary.com/dmvdbpyqk/image/upload/v1760166295/Screenshot_2025-10-11_123613_zlqv6u.png", // projectImages[0]
         title: "HackNITR 7.0 – Project Yogurt",
+        slug: "hacknitr-7-0-project-yogurt",
+        category: "hackathons",
         shortDesc:
             "Official platform for HackNITR 7.0, a major student-run hackathon.",
         techStack: [
@@ -142,6 +158,8 @@ export const PROJECTS = [
     {
         image: "http://res.cloudinary.com/dscnitrourkela/image/upload/v1768942457/project-huckleberry/vqcl553e8shzkiqnorfs.png", // projectImages[0]
         title: "Nitrutsav – Project Zucchini",
+        slug: "nitrutsav-project-zucchini",
+        category: "community",
         shortDesc:
             "NIT Rourkela’s annual literary and cultural festival—one of Odisha’s largest student-run events. Built with Turborepo, Next.js, Firebase, and Drizzle ORM",
         techStack: [
@@ -155,10 +173,11 @@ export const PROJECTS = [
         longDesc:
             "NIT Rourkela’s annual literary and cultural festival—one of Odisha’s largest student-run events. Built with Turborepo, Next.js, Firebase, and Drizzle ORM",
     },
-
     {
         image: "https://ik.imagekit.io/euurqxbuc/portfolio/image.png", // projectImages[0]
         title: "TEMPCLIP",
+        slug: "tempclip",
+        category: "personal",
         shortDesc:
             "Securely move snippets and links between devices. Data disappears instantly when the session expires.",
         techStack: [

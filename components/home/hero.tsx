@@ -81,9 +81,12 @@ export default function Hero() {
                 <Button
                     variant={"outline"}
                     size={"sm"}
-                    className="opacity-80 hover:opacity-100"
+                    className="opacity-80 hover:opacity-100 cursor-pointer"
+                    onClick={() => {
+                        window.dispatchEvent(new CustomEvent("toggle-command-menu"));
+                    }}
                 >
-                    <Command /> K
+                    <Command className="h-4 w-4" /> K
                 </Button>
 
                 <AnimatedThemeToggler duration={500} />

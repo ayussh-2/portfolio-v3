@@ -16,6 +16,7 @@ import { Button } from "../ui/button";
 interface ProjectDetail {
     image: string;
     title: string;
+    slug: string;
     shortDesc: string;
     techStack: Array<{
         icon: string;
@@ -32,24 +33,24 @@ export function ProjectCard({
     isOdd = false,
 }: {
     project: ProjectDetail;
-    isOdd: boolean;
+    isOdd?: boolean;
 }) {
     const isMobile = project.deviceType === "mobile";
 
     return (
         <Card
-            className={`w-full max-w-sm rounded-none border-b ${isOdd ? "border-r" : "border-l"} border-black/30 dark:border-white/15 border-dashed dark:bg-[#0a0a0a] bg-white ring-0 px-3`}
+            className={`w-full max-w-sm rounded-none border-b ${isOdd ? "border-r" : "border-l"} border-black/30 dark:border-white/15 border-dashed dark:bg-[#0a0a0a] bg-white ring-0 px-3 h-full flex flex-col`}
         >
             <div>
-                <div className="relative w-full rounded-xl border border-black/5 dark:border-white/5 bg-zinc-50/80 dark:bg-[#09090b]/80 shadow-sm flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md hover:border-black/10 dark:hover:border-white/10 group">
+                <div className="relative w-full rounded-xl  shadow-sm flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md hover:border-black/10 dark:hover:border-white/10 group">
                     <motion.div
-                        className="relative border-0 overflow-hidden rounded-t-xl flex items-center justify-center bg-zinc-200/30 dark:bg-zinc-800/30"
+                        className="relative border-0 overflow-hidden rounded-t-xl flex items-center justify-center h-[200px]"
                         initial="initial"
                         whileHover="hover"
                     >
                         <div className="flex items-end justify-center w-full h-full ">
                             {isMobile ? (
-                                <div className="w-27.5 shadow-2xl translate-y-3 mb-5 rounded-4xl">
+                                <div className="w-27.5 shadow-2xl translate-y-3 mb-5 rounded-4xl origin-bottom scale-[0.8]">
                                     <Iphone src={project.image} />
                                 </div>
                             ) : (
@@ -66,7 +67,7 @@ export function ProjectCard({
                         </div>
 
                         <motion.div
-                            className="absolute inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm"
+                            className="absolute inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-20"
                             variants={{
                                 initial: { opacity: 0 },
                                 hover: {
@@ -75,25 +76,29 @@ export function ProjectCard({
                                 },
                             }}
                         >
-                            <SoftPillButton
-                                variant="primary"
-                                className="text-xs px-3 py-2"
-                            >
-                                <Play size={15} />
-                            </SoftPillButton>
+                            <Link href={`/projects/${project.slug}`}>
+                                <SoftPillButton
+                                    variant="primary"
+                                    className="text-xs px-3 py-2"
+                                >
+                                    <Play size={15} />
+                                </SoftPillButton>
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </div>
             </div>
-            <CardContent className="pt-4">
-                <h2 className="text-[15px] font-bold text-zinc-900 dark:text-zinc-100">
-                    {project.title}
-                </h2>
-                <p className="mt-1.5 text-[13px] text-zinc-500 dark:text-zinc-400 leading-relaxed pr-2">
-                    {project.shortDesc}
-                </p>
-                <div className="flex items-end justify-between">
-                    <div className="flex gap-2 mt-4">
+            <CardContent className="pt-4 flex-1 flex flex-col justify-between pb-4">
+                <div>
+                    <h2 className="text-[15px] font-bold text-zinc-900 dark:text-zinc-100">
+                        {project.title}
+                    </h2>
+                    <p className="mt-1.5 text-[13px] text-zinc-500 dark:text-zinc-400 leading-relaxed pr-2">
+                        {project.shortDesc}
+                    </p>
+                </div>
+                <div className="flex items-end justify-between mt-auto pt-4">
+                    <div className="flex gap-2">
                         {project.techStack.slice(0, 5).map((tech, i) =>
                             tech.icon ? (
                                 <Tooltip key={i}>
@@ -114,10 +119,9 @@ export function ProjectCard({
                     <div className="group">
                         <Link
                             className="flex items-center gap-1 text-[12px] font-medium text-zinc-500 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors cursor-pointer shrink-0"
-                            href={project.liveLink || project.githubLink}
-                            target="_blank"
+                            href={`/projects/${project.slug}`}
                         >
-                            View
+                            Details
                             <ArrowUpRight size={15} />
                         </Link>
                     </div>
@@ -147,7 +151,9 @@ export default function Projects() {
             </div>
             <SeperatorInline />
             <div className="flex items-center justify-center py-3">
-                <SoftPillButton>See More</SoftPillButton>
+                <Link href="/projects">
+                    <SoftPillButton as="div">See More</SoftPillButton>
+                </Link>
             </div>
             <SeperatorInline />
         </section>

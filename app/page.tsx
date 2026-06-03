@@ -11,6 +11,7 @@ import { SeperatorInline } from "@/components/ui/seperator";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Skills from "@/components/home/skills";
+import Footer from "@/components/home/footer";
 
 export default function Home() {
     const { theme } = useTheme();
@@ -29,16 +30,28 @@ export default function Home() {
                     <SeperatorInline />
                     <Hero />
                     <SeperatorInline />
-                    <About />
+                    <div id="about">
+                        <About />
+                    </div>
                     <SeperatorInline />
-                    <Experience />
+                    <div id="experience">
+                        <Experience />
+                    </div>
                     <SeperatorInline />
-                    <Projects />
+                    <div id="projects">
+                        <Projects />
+                    </div>
                     <SeperatorInline />
-                    <Github iconColor={color} />
+                    <div id="contributions">
+                        <Github />
+                    </div>
                     <SeperatorInline />
-                    <Skills />
-                    <div className="h-16"></div>
+                    <div id="skills">
+                        <Skills />
+                    </div>
+                    <SeperatorInline />
+                    <Footer />
+                    <div className="h-10"></div>
                     <ProgressiveBlur height="70px" position="bottom" />
                 </div>
             </Intersection2>

@@ -72,10 +72,10 @@ function ExperienceItem({
 
 type ExperienceDetailProps = {
     details: string[];
-    techStack: string[];
+    techStack?: string[];
 };
 
-function ExperienceDetail({ details, techStack }: ExperienceDetailProps) {
+function ExperienceDetail({ details, techStack = [] }: ExperienceDetailProps) {
     return (
         <div>
             <ul className="mb-4 space-y-2 text-[13px] leading-relaxed list-disc pl-5">
@@ -89,16 +89,17 @@ function ExperienceDetail({ details, techStack }: ExperienceDetailProps) {
 
             <div className="mt-4">
                 <div className="flex flex-wrap gap-2">
-                    {techStack.map((tech, idx) => {
-                        const IconComponent = techStackIcons[tech];
-                        return (
-                            <TechBadge
-                                key={idx}
-                                tech={tech}
-                                icon={IconComponent}
-                            />
-                        );
-                    })}
+                    {techStack &&
+                        techStack.map((tech, idx) => {
+                            const IconComponent = techStackIcons[tech];
+                            return (
+                                <TechBadge
+                                    key={idx}
+                                    tech={tech}
+                                    icon={IconComponent}
+                                />
+                            );
+                        })}
                 </div>
             </div>
         </div>

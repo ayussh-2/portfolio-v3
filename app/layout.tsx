@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { geistMono, geistSans } from "@/fonts";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CommandMenu } from "@/components/command-menu";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -39,6 +40,7 @@ export default function RootLayout({
                 >
                     <TooltipProvider>
                         {children}
+                        <CommandMenu />
                         <Toaster
                             className="font-sans"
                             style={{
