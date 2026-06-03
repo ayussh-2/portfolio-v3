@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { geistMono, geistSans } from "@/fonts";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CommandMenu } from "@/components/command-menu";
+import { NavigationTracker } from "@/components/navigation-tracker";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -40,6 +41,7 @@ export default function RootLayout({
                 >
                     <TooltipProvider>
                         {children}
+                        <NavigationTracker />
                         <CommandMenu />
                         <Toaster
                             className="font-sans"

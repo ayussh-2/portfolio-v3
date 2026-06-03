@@ -77,7 +77,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center justify-between gap-2" style={{ viewTransitionName: "site-header" }}>
                 <Button
                     variant={"outline"}
                     size={"sm"}

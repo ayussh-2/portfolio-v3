@@ -1,5 +1,6 @@
 "use client";
 
+import { ViewTransition } from "react";
 import { Card, CardContent } from "../ui/card";
 import { SeperatorInline } from "../ui/seperator";
 import { motion } from "motion/react";
@@ -51,17 +52,21 @@ export function ProjectCard({
                         <div className="flex items-end justify-center w-full h-full ">
                             {isMobile ? (
                                 <div className="w-27.5 shadow-2xl translate-y-3 mb-5 rounded-4xl origin-bottom scale-[0.8]">
-                                    <Iphone src={project.image} />
+                                    <ViewTransition name={`project-mockup-${project.slug}`} share="morph">
+                                        <Iphone src={project.image} />
+                                    </ViewTransition>
                                 </div>
                             ) : (
                                 <div className="w-full shadow-2xl ">
-                                    <Safari
-                                        imageSrc={project.image}
-                                        url={
-                                            project.liveLink ||
-                                            project.githubLink
-                                        }
-                                    />
+                                    <ViewTransition name={`project-mockup-${project.slug}`} share="morph">
+                                        <Safari
+                                            imageSrc={project.image}
+                                            url={
+                                                project.liveLink ||
+                                                project.githubLink
+                                            }
+                                        />
+                                    </ViewTransition>
                                 </div>
                             )}
                         </div>
@@ -76,7 +81,7 @@ export function ProjectCard({
                                 },
                             }}
                         >
-                            <Link href={`/projects/${project.slug}`}>
+                            <Link href={`/projects/${project.slug}`} transitionTypes={['nav-forward']}>
                                 <SoftPillButton
                                     variant="primary"
                                     className="text-xs px-3 py-2"
@@ -120,6 +125,7 @@ export function ProjectCard({
                         <Link
                             className="flex items-center gap-1 text-[12px] font-medium text-zinc-500 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors cursor-pointer shrink-0"
                             href={`/projects/${project.slug}`}
+                            transitionTypes={['nav-forward']}
                         >
                             Details
                             <ArrowUpRight size={15} />
@@ -151,7 +157,7 @@ export default function Projects() {
             </div>
             <SeperatorInline />
             <div className="flex items-center justify-center py-3">
-                <Link href="/projects">
+                <Link href="/projects" transitionTypes={['nav-forward']}>
                     <SoftPillButton as="div">See More</SoftPillButton>
                 </Link>
             </div>
