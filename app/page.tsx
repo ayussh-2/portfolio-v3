@@ -4,11 +4,13 @@ import Banner from "@/components/home/banner";
 import Experience from "@/components/home/experience";
 import Hero from "@/components/home/hero";
 import Projects from "@/components/home/projects";
+import Github from "@/components/home/github";
 import Intersection2 from "@/components/pixel-perfect/intersection2";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { SeperatorInline } from "@/components/ui/seperator";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import Skills from "@/components/home/skills";
 
 export default function Home() {
     const { theme } = useTheme();
@@ -27,12 +29,15 @@ export default function Home() {
                     <SeperatorInline />
                     <Hero />
                     <SeperatorInline />
-                    <About iconColor={color} />
+                    <About />
                     <SeperatorInline />
-                    <Experience iconColor={color} />
+                    <Experience />
                     <SeperatorInline />
-                    <Projects iconColor={color} />
+                    <Projects />
                     <SeperatorInline />
+                    <Github iconColor={color} />
+                    <SeperatorInline />
+                    <Skills />
                     <div className="h-16"></div>
                     <ProgressiveBlur height="70px" position="bottom" />
                 </div>

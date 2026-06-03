@@ -1,7 +1,6 @@
 "use client";
 
 import { File, Mail } from "lucide-react";
-import { useTheme } from "next-themes";
 
 import {
     about,
@@ -14,7 +13,7 @@ import {
 
 import SoftPillButton from "../pixel-perfect/soft-pill-button";
 
-export default function About({ iconColor }: { iconColor: string }) {
+export default function About() {
     return (
         <section className="px-3 text-sm sm:text-base text-zinc-700 dark:text-zinc-200">
             <div>
@@ -56,7 +55,7 @@ export default function About({ iconColor }: { iconColor: string }) {
                     <span className="opacity-80">Here are my </span>
                     <span className="dark:text-white opacity-100">socials</span>
                 </p>
-                <div className="flex items-center gap-2 mt-5">
+                <div className="flex items-center gap-2 mt-2">
                     {SOCIALS.map(({ id, Icon, link, title }) => (
                         <SoftPillButton
                             key={id}
@@ -65,7 +64,7 @@ export default function About({ iconColor }: { iconColor: string }) {
                             className="text-xs  px-3 py-2"
                         >
                             <div className="flex items-center gap-2">
-                                <Icon color={iconColor} size={15} />
+                                <i className={`${Icon} text-[15px]`} />
                                 {title}
                             </div>
                         </SoftPillButton>

@@ -1,82 +1,4 @@
-import type { ComponentType } from 'react';
-
-import { toast } from 'sonner';
-
-import Discord from '@/components/icons/discord';
-import LeetCode from '@/components/icons/leetcode';
-import {
-  GithubOriginalIcon,
-  LinkedinOriginalIcon,
-} from '@devicon/react';
-
-export const about = [
-    "B.Tech, Civil Engineering at NIT Rourkela (2023-2027).",
-    "Interned at Soundpark, ScanKart AI, and Pariksit Inc,shipping backend and product features.",
-    "Lead organizer for GDG on Campus NITR and HackNITR 7.0.",
-];
-
-export const subHeading =
-    "Engineer. I build full-stack systems and developer tools.";
-
-export const RESUME =
-    "https://drive.google.com/file/d/1ntZqA9BFDVf1UBSlPikTuOM79lbaOIg-/view?usp=sharing";
-
-export const MAIL =
-    "https://mail.google.com/mail/?view=cm&fs=1&to=ayushatschool5%40gmail.com";
-
-export function handleRedirect(url: string) {
-    if (url == "discord") {
-        copyToClipboard(DISCORD_USER_NAME);
-        toast.success("Username copied to clipboard!");
-        return;
-    }
-    window.open(url, "_blank");
-}
-
-export function copyToClipboard(text: string) {
-    navigator.clipboard.writeText(text);
-}
-
-export const DISCORD_USER_NAME = "ayus.ssh";
-type SocialItem = {
-    id: string;
-    link: string;
-    title: string;
-    Icon: ComponentType<{
-        size?: string | number;
-        className?: string;
-        color?: string;
-    }>;
-};
-
-export const SOCIALS: SocialItem[] = [
-    {
-        id: "github",
-        link: "https://github.com/ayussh-2",
-        Icon: GithubOriginalIcon,
-        title: "Github",
-    },
-    {
-        id: "linkedin",
-        link: "https://www.linkedin.com/in/ayush-a-8b14062b9/",
-        Icon: LinkedinOriginalIcon,
-        title: "Linkedin",
-    },
-    {
-        id: "leetcode",
-        link: "https://leetcode.com/u/ayussh-2/",
-        Icon: LeetCode,
-        title: "LeetCode",
-    },
-    {
-        id: "discord",
-        link: "discord",
-        Icon: Discord,
-        title: "Discord",
-    },
-];
-
-type ExperienceItem = {
+export type ExperienceItem = {
     logo: string;
     role: string;
     company: string;
@@ -88,10 +10,10 @@ type ExperienceItem = {
 
 export const EXPERIENCE: ExperienceItem[] = [
     {
-        logo: "",
+        logo: "https://ik.imagekit.io/euurqxbuc/portfolio/1754588090599_e=1782345600&v=beta&t=E9S9xAOTb4socPFx318O-ZdrhXq65myHK30CtIsTung",
         role: "Software Engineer Intern",
         company: "Soundpark",
-        duration: "May – July 2025",
+        duration: "May – Jul 25",
         location: "Remote",
         details: [
             "Architected a scalable backend using TypeScript and Node.js, implementing a hybrid REST/GraphQL API (Apollo Server 4) with WebSocket subscriptions, serving 11 resolver modules across 18+ database entities with Drizzle ORM.",
@@ -111,10 +33,10 @@ export const EXPERIENCE: ExperienceItem[] = [
         ],
     },
     {
-        logo: "",
+        logo: "https://ik.imagekit.io/euurqxbuc/portfolio/scankart_ai_logo_e=1782345600&v=beta&t=FBk0It3XYXKbUfot1tlBX_axVMWL0VKWnCdDBHHw1sU",
         role: "Software Engineer Intern",
         company: "ScanKart AI",
-        duration: "December 2024 – January 2025",
+        duration: "Dec 24 – Jan 25",
         location: "Remote",
         details: [
             "Developed an AI-powered Chrome extension using React and Socket.IO to summarise web content, reducing reading time for users by 50%.",
@@ -130,10 +52,10 @@ export const EXPERIENCE: ExperienceItem[] = [
         ],
     },
     {
-        logo: "",
+        logo: "https://ik.imagekit.io/euurqxbuc/portfolio/logo-1778301127097.jpg",
         role: "Software Engineer Intern",
         company: "Pariksit Inc",
-        duration: "May – June 2024",
+        duration: "May – Jun 24",
         location: "Rourkela, Odisha",
         details: [
             "Streamlined academic operations by building a mark management system in PHP and SQL that automated data entry for 400+ students and report generation, reducing manual input by 75% and processing time by 95%.",

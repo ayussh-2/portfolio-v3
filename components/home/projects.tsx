@@ -10,14 +10,15 @@ import { Iphone } from "@/components/ui/iphone";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 import Link from "next/link";
-import { PROJECTS } from "@/config/projects";
+import { PROJECTS } from "@/config";
+import { Button } from "../ui/button";
 
 interface ProjectDetail {
     image: string;
     title: string;
     shortDesc: string;
     techStack: Array<{
-        icon: React.ComponentType;
+        icon: string;
         title: string;
     }>;
     githubLink: string;
@@ -28,11 +29,9 @@ interface ProjectDetail {
 
 export function ProjectCard({
     project,
-    iconColor = "#2a2",
     isOdd = false,
 }: {
     project: ProjectDetail;
-    iconColor: string;
     isOdd: boolean;
 }) {
     const isMobile = project.deviceType === "mobile";
@@ -100,11 +99,8 @@ export function ProjectCard({
                                 <Tooltip key={i}>
                                     <TooltipTrigger asChild>
                                         <div className="cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
-                                            <tech.icon
-                                                // @ts-ignore
-                                                size={15}
-                                                color={iconColor}
-                                                fill={iconColor}
+                                            <i
+                                                className={`${tech.icon} text-[12px]`}
                                             />
                                         </div>
                                     </TooltipTrigger>
@@ -131,7 +127,7 @@ export function ProjectCard({
     );
 }
 
-export default function Projects({ iconColor }: { iconColor: string }) {
+export default function Projects() {
     return (
         <section>
             <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
@@ -139,17 +135,21 @@ export default function Projects({ iconColor }: { iconColor: string }) {
             </h1>
             <SeperatorInline />
             <div className="grid grid-cols-2 ">
-                {PROJECTS.map((project, index) => (
+                {PROJECTS.slice(0, 4).map((project, index) => (
                     <ProjectCard
                         key={index}
                         // @ts-ignore
                         project={project}
-                        iconColor={iconColor}
                         // @ts-ignore
                         isOdd={!index % 2}
                     />
                 ))}
             </div>
+            <SeperatorInline />
+            <div className="flex items-center justify-center py-3">
+                <SoftPillButton>See More</SoftPillButton>
+            </div>
+            <SeperatorInline />
         </section>
     );
 }

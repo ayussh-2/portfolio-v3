@@ -4,22 +4,6 @@ import { useTheme } from "next-themes";
 
 import { EXPERIENCE } from "@/config";
 import {
-    AmazonwebservicesOriginalWordmarkIcon,
-    ChromePlainIcon,
-    FlaskOriginalIcon,
-    GraphqlPlainIcon,
-    NextjsOriginalIcon,
-    NginxOriginalIcon,
-    NodejsOriginalIcon,
-    PhpPlainIcon,
-    ReactOriginalIcon,
-    RedisOriginalIcon,
-    SocketioOriginalIcon,
-    SqlitePlainIcon,
-    TypescriptOriginalIcon,
-} from "@devicon/react";
-
-import {
     Accordion,
     AccordionItem,
     AccordionPanel,
@@ -27,25 +11,23 @@ import {
 } from "../ui/accordion";
 import { Avatar } from "./hero";
 import { SeperatorInline } from "../ui/seperator";
+import { TechBadge } from "../ui/tech-badge";
 
-const techStackIcons: Record<
-    string,
-    React.ComponentType<{ size?: string | number; className?: string }>
-> = {
-    TypeScript: TypescriptOriginalIcon,
-    "Node.js": NodejsOriginalIcon,
-    GraphQL: GraphqlPlainIcon,
+const techStackIcons: Record<string, string> = {
+    TypeScript: "devicon-typescript-plain",
+    "Node.js": "devicon-nodejs-plain",
+    GraphQL: "devicon-graphql-plain",
 
-    "AWS EC2": AmazonwebservicesOriginalWordmarkIcon,
-    Nginx: NginxOriginalIcon,
-    Redis: RedisOriginalIcon,
-    React: ReactOriginalIcon,
-    "Socket.IO": SocketioOriginalIcon,
-    "Next.js": NextjsOriginalIcon,
-    Flask: FlaskOriginalIcon,
-    PHP: PhpPlainIcon,
-    SQL: SqlitePlainIcon,
-    "Chrome Extension": ChromePlainIcon,
+    "AWS EC2": "devicon-amazonwebservices-plain-wordmark",
+    Nginx: "devicon-nginx-original",
+    Redis: "devicon-redis-plain",
+    React: "devicon-react-original",
+    "Socket.IO": "devicon-socketio-original",
+    "Next.js": "devicon-nextjs-plain",
+    Flask: "devicon-flask-original",
+    PHP: "devicon-php-plain",
+    SQL: "devicon-sqlite-plain",
+    "Chrome Extension": "devicon-chrome-plain",
 };
 
 type ExperienceItemProps = {
@@ -91,14 +73,9 @@ function ExperienceItem({
 type ExperienceDetailProps = {
     details: string[];
     techStack: string[];
-    iconColor: string;
 };
 
-function ExperienceDetail({
-    details,
-    techStack,
-    iconColor,
-}: ExperienceDetailProps) {
+function ExperienceDetail({ details, techStack }: ExperienceDetailProps) {
     return (
         <div>
             <ul className="mb-4 space-y-2 text-[13px] leading-relaxed list-disc pl-5">
@@ -115,22 +92,11 @@ function ExperienceDetail({
                     {techStack.map((tech, idx) => {
                         const IconComponent = techStackIcons[tech];
                         return (
-                            <div
+                            <TechBadge
                                 key={idx}
-                                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-[6px] border border-zinc-200/50 dark:border-zinc-800/50 bg-zinc-50 dark:bg-[#111111]"
-                            >
-                                {IconComponent ? (
-                                    <IconComponent
-                                        size={14}
-                                        // @ts-ignore
-                                        color={iconColor}
-                                        fill={iconColor}
-                                    />
-                                ) : null}
-                                <span className="text-[11px] font-medium text-zinc-600 dark:text-zinc-400">
-                                    {tech}
-                                </span>
-                            </div>
+                                tech={tech}
+                                icon={IconComponent}
+                            />
                         );
                     })}
                 </div>
@@ -139,7 +105,7 @@ function ExperienceDetail({
     );
 }
 
-export default function Experience({ iconColor }: { iconColor: string }) {
+export default function Experience() {
     return (
         <section>
             <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2! px-3">
@@ -160,7 +126,6 @@ export default function Experience({ iconColor }: { iconColor: string }) {
                             <ExperienceDetail
                                 details={exp.details}
                                 techStack={exp.techStack}
-                                iconColor={iconColor}
                             />
                         </AccordionPanel>
                     </AccordionItem>
