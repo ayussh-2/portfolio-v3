@@ -19,14 +19,14 @@ export default function About() {
             <div>
                 <p className="para">{subHeading}</p>
 
-                <ul className="mt-4  text-zinc-600 dark:text-zinc-300 pl-8 para">
+                {/* <ul className="mt-4  text-zinc-600 dark:text-zinc-300 pl-0 md:pl-8 para">
                     {about.map((abt, index) => (
                         <li key={index} className="flex gap-2">
                             <span>•</span>
                             {abt}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
 
             <div className="flex items-center gap-2 mt-5">

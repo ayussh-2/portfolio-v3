@@ -12,7 +12,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     {
         logo: "https://github.com/dscnitrourkela.png",
         role: "Lead Organizer",
-        company: "GDG on Campus NIT Rourkela",
+        company: "GDG on Campus",
         duration: "Sep 25 – Present",
         location: "Rourkela, Odisha",
         details: [

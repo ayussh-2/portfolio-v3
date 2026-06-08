@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             }}
             default="none"
         >
-            <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
+            <main className="w-full md:max-w-3xl mx-auto min-h-screen relative flex flex-col overflow-visible">
                 <Intersection2>
                     <div className="relative min-h-screen w-full overflow-visible  flex flex-col">
                         {/* Header Controls */}
@@ -75,7 +75,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                     </ViewTransition>
                                 </div>
                             ) : (
-                                <div className="w-full max-w-md shadow-2xl rounded-lg overflow-hidden">
+                                <div className="w-full max-w-lg shadow-5xl rounded-lg overflow-hidden px-2">
                                     <ViewTransition name={`project-mockup-${project.slug}`} share="morph">
                                         <Safari
                                             imageSrc={project.image}
@@ -88,35 +88,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
                         <SeperatorInline />
 
-                        {/* Details / Description */}
-                        <div className="py-6 flex-1 px-3">
-                            <h2 className="text-[16px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                About the Project
-                            </h2>
-                            <p className="text-[14px] sm:text-[15px] text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                                {project.longDesc}
-                            </p>
-
-                            {/* Tech Stack */}
-                            <div className="mt-8">
-                                <h3 className="text-[14px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                    Technologies Used
-                                </h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {project.techStack.map((tech, idx) => (
-                                        <TechBadge
-                                            key={idx}
-                                            tech={tech.title}
-                                            icon={tech.icon}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        <SeperatorInline />
-
-                        {/* Action Links Footer */}
+                        {/* Action Links */}
                         <div className="py-6 flex items-center gap-3 px-3">
                             {project.githubLink && (
                                 <SoftPillButton
@@ -158,6 +130,34 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                     </div>
                                 </SoftPillButton>
                             )}
+                        </div>
+
+                        <SeperatorInline />
+
+                        {/* Details / Description */}
+                        <div className="py-6 flex-1 px-3">
+                            <h2 className="text-[16px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
+                                About the Project
+                            </h2>
+                            <p className="text-[14px] sm:text-[15px] text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                                {project.longDesc}
+                            </p>
+
+                            {/* Tech Stack */}
+                            <div className="mt-8">
+                                <h3 className="text-[14px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
+                                    Technologies Used
+                                </h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {project.techStack.map((tech, idx) => (
+                                        <TechBadge
+                                            key={idx}
+                                            tech={tech.title}
+                                            icon={tech.icon}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
                         <div className="h-12"></div>

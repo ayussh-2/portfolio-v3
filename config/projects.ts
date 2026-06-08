@@ -28,7 +28,7 @@ export const PROJECTS = [
         slug: "plastrack",
         category: "hackathons",
         shortDesc:
-            "A comprehensive waste management and infrastructure solution that uses AI to identify, classify, and suggest sustainable reuse of waste materials.",
+            "AI-powered waste management system designed to classify and suggest sustainable material reuse.",
         techStack: [
             { icon: "devicon-react-original", title: "React Native" },
             { icon: "devicon-expo-original", title: "Expo" },
@@ -49,7 +49,7 @@ export const PROJECTS = [
         slug: "chatuu",
         category: "personal",
         shortDesc:
-            "Modern real-time chat application designed for seamless and secure communication.",
+            "Modern real-time chat application built for seamless, secure, and instant global communication.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
             { icon: "devicon-express-original", title: "Express.js" },
@@ -70,7 +70,7 @@ export const PROJECTS = [
         slug: "pariksit-mark-manager",
         category: "personal",
         shortDesc:
-            "Comprehensive solution for mark management, test generation, and report card creation.",
+            "Comprehensive institutional solution for mark management, test generation, and report card creation.",
         techStack: [
             { icon: "devicon-php-plain", title: "PHP" },
             { icon: "devicon-jquery-plain", title: "jQuery" },
@@ -90,7 +90,7 @@ export const PROJECTS = [
         slug: "sthitivartana",
         category: "hackathons",
         shortDesc:
-            "Collaborative project for the AICHE Student Regional Council event.",
+            "Collaborative student-led portal built for the prestigious AICHE Student Regional Council event.",
         techStack: [
             { icon: "devicon-react-original", title: "React.js" },
             { icon: "devicon-graphql-plain", title: "GraphQL" },
@@ -108,7 +108,7 @@ export const PROJECTS = [
         slug: "project-huckleberry",
         category: "community",
         shortDesc:
-            "Official website for Google Developer Group on Campus NIT Rourkela.",
+            "Official community website for Google Developer Group on Campus NIT Rourkela chapter.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
             { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
@@ -125,7 +125,8 @@ export const PROJECTS = [
         title: "HackOdisha 5.0",
         slug: "hackodisha-5-0",
         category: "hackathons",
-        shortDesc: "Platform for one of eastern India’s largest hackathons.",
+        shortDesc:
+            "Dynamic platform built for one of eastern India's largest student run hackathons.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
             { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
@@ -143,7 +144,7 @@ export const PROJECTS = [
         slug: "hacknitr-7-0-project-yogurt",
         category: "hackathons",
         shortDesc:
-            "Official platform for HackNITR 7.0, a major student-run hackathon.",
+            "Official interactive platform built for HackNITR 7.0, a major national student-run hackathon.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
             { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
@@ -161,7 +162,7 @@ export const PROJECTS = [
         slug: "nitrutsav-project-zucchini",
         category: "community",
         shortDesc:
-            "NIT Rourkela’s annual literary and cultural festival—one of Odisha’s largest student-run events. Built with Turborepo, Next.js, Firebase, and Drizzle ORM",
+            "Official web platform for NIT Rourkela's annual literary and cultural student-run festival.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
             { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
@@ -179,7 +180,7 @@ export const PROJECTS = [
         slug: "tempclip",
         category: "personal",
         shortDesc:
-            "Securely move snippets and links between devices. Data disappears instantly when the session expires.",
+            "Securely transfer text snippets and links between devices with automatic session expiration.",
         techStack: [
             { icon: "devicon-nextjs-plain", title: "Next.js" },
             { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },

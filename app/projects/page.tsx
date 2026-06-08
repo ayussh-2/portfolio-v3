@@ -4,7 +4,7 @@ import { HeaderControls } from "@/components/header-controls";
 import Intersection2 from "@/components/pixel-perfect/intersection2";
 import { SeperatorInline } from "@/components/ui/seperator";
 import { PROJECTS } from "@/config";
-import { ProjectCard } from "@/components/home/projects";
+import { ProjectCard, getLayoutItems } from "@/components/home/projects";
 import { ViewTransition } from "react";
 
 const CATEGORIES = [
@@ -40,28 +40,22 @@ export default function ProjectsPage() {
             }}
             default="none"
         >
-            <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
+            <main className="w-full md:max-w-3xl mx-auto min-h-screen relative flex flex-col overflow-visible">
                 <Intersection2>
                     <div className="relative min-h-screen w-full overflow-visible flex flex-col">
                         {/* Header Controls */}
                         <HeaderControls />
 
-                        <SeperatorInline />
-
-                        {/* Title */}
-                        <div className="py-6 px-3">
-                            <h1 className="text-[24px] sm:text-[28px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">
-                                Projects Archive
+                        <div className="flex items-center justify-between py-4 px-3">
+                            <h1 className="text-[20px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
+                                Archive
                             </h1>
-                            <p className="mt-2 text-sm sm:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                                A curated list of my works, classified by focus.
-                            </p>
                         </div>
 
                         {CATEGORIES.map((category) => {
-                            const categoryProjects = PROJECTS.filter(
-                                (p) => p.category === category.id,
-                            );
+                            const categoryProjects = PROJECTS.filter((p) => {
+                                return p.category === category.id;
+                            });
 
                             if (categoryProjects.length === 0) return null;
 
@@ -81,11 +75,12 @@ export default function ProjectsPage() {
                                     </div>
                                     <SeperatorInline />
                                     <div className="grid grid-cols-2 w-full border-l border-r border-black/30 dark:border-white/15 border-dashed">
-                                        {categoryProjects.map((project, idx) => (
+                                        {getLayoutItems(categoryProjects).map(({ project, colSpanClass, borderClass }, idx) => (
                                             <ProjectCard
                                                 key={project.slug}
                                                 project={project as any}
-                                                // isOdd={idx % 2 === 1}
+                                                colSpanClass={colSpanClass}
+                                                borderClass={borderClass}
                                             />
                                         ))}
                                     </div>
@@ -95,13 +90,7 @@ export default function ProjectsPage() {
 
                         <SeperatorInline />
 
-                        {/* Small inner footer */}
-                        <footer className="py-6 text-center font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
-                            <span>
-                                © {new Date().getFullYear()} Ayush • End of Archive
-                            </span>
-                        </footer>
-                        <div className="h-10"></div>
+                        
                     </div>
                 </Intersection2>
             </main>

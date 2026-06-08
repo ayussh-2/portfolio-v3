@@ -50,19 +50,19 @@ function ExperienceItem({
             <div className="flex items-center gap-4 min-w-0 flex-1">
                 <Avatar url={logo as string} size="sm" />
                 <div className="flex flex-col gap-0.5 min-w-0">
-                    <h2 className="text-[17px] font-bold text-zinc-900 dark:text-zinc-100 truncate">
+                    <h2 className="text-[15px] md:text-[17px] font-bold text-zinc-900 dark:text-zinc-100 truncate">
                         {company}
                     </h2>
-                    <span className="text-[15px] text-zinc-600 dark:text-zinc-400 truncate">
+                    <span className="text-[12px] md:text-[15px] text-zinc-600 dark:text-zinc-400 truncate">
                         {role}
                     </span>
                 </div>
             </div>
             <div className="flex flex-col items-end shrink-0">
-                <h2 className="text-[15px] text-zinc-900 dark:text-zinc-100 whitespace-nowrap">
+                <h2 className="text-[12px] md:text-[15px] text-zinc-900 dark:text-zinc-100 whitespace-nowrap">
                     {duration}
                 </h2>
-                <h2 className="text-[14px] text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
+                <h2 className="text-[11px] md:text-[14px] text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
                     {location}
                 </h2>
             </div>
@@ -78,7 +78,7 @@ type ExperienceDetailProps = {
 function ExperienceDetail({ details, techStack = [] }: ExperienceDetailProps) {
     return (
         <div>
-            <ul className="mb-4 space-y-2 text-[13px] leading-relaxed list-disc pl-5">
+            <ul className="mb-4 space-y-2 text-[12px] md:text-[13px] leading-relaxed list-disc pl-5">
                 {details.map((detail, idx) => (
                     <li className="flex items-start gap-1.5" key={idx}>
                         <span>•</span>
@@ -118,7 +118,7 @@ export default function Experience() {
                     <AccordionItem
                         key={exp.company}
                         value={`experience-${idx}`}
-                        className="border-b border-dashed px-3 rounded-none"
+                        className="border-b border-dashed border-black/30 dark:border-white/15 px-3 rounded-none"
                     >
                         <AccordionTrigger>
                             <ExperienceItem {...exp} />

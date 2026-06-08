@@ -12,3 +12,6 @@ export const RESUME =
 
 export const MAIL =
     "https://mail.google.com/mail/?view=cm&fs=1&to=ayushatschool5%40gmail.com";
+
+export const DAY_BANNER="https://ik.imagekit.io/euurqxbuc/portfolio/day.webp"
+export const NIGHT_BANNER="https://ik.imagekit.io/euurqxbuc/portfolio/night.webp"
