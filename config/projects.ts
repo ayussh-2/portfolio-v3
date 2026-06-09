@@ -1,6 +1,20 @@
-// @ts-nocheck
+export interface Project {
+  image: string;
+  title: string;
+  slug: string;
+  category: "personal" | "hackathons" | "community";
+  shortDesc: string;
+  techStack: {
+    icon: string;
+    title: string;
+  }[];
+  githubLink: string;
+  liveLink: string;
+  longDesc: string;
+  deviceType?: "desktop" | "mobile";
+}
 
-export const PROJECTS = [
+export const COMMUNITY: Project[] = [
   {
     image:
       "http://res.cloudinary.com/dscnitrourkela/image/upload/v1768942457/project-huckleberry/vqcl553e8shzkiqnorfs.png", // projectImages[0]
@@ -79,7 +93,9 @@ export const PROJECTS = [
     longDesc:
       "Project Huckleberry is the official website of DSC NIT Rourkela, built to showcase the community’s initiatives, events, and achievements through interactive animations.",
   },
+];
 
+export const HACKATHONS: Project[] = [
   {
     image:
       "https://ik.imagekit.io/euurqxbuc/portfolio/Screenshot%202026-06-09%20212204.png",
@@ -147,6 +163,9 @@ export const PROJECTS = [
       "Plastrack is an innovative solution addressing the global waste management crisis through technology. The project combines AI-powered waste identification with community engagement to: identify waste materials with high accuracy using computer vision; suggest sustainable disposal methods appropriate for each waste type; map waste hotspots to help municipalities prioritize cleanup efforts; engage communities through gamification and educational content; and connect waste generators with recycling facilities and upcycling opportunities. Our platform serves various stakeholders including individuals, waste management companies, municipalities, and environmental organizations.",
     deviceType: "mobile",
   },
+];
+
+export const PERSONAL: Project[] = [
   {
     image:
       "https://ik.imagekit.io/euurqxbuc/portfolio/Screenshot%202026-06-09%20215443.png",
@@ -235,4 +254,10 @@ export const PROJECTS = [
     longDesc:
       "Chatuu is a modern real-time chat application designed for seamless and secure communication. Built with Next.js, Tailwind CSS, Express, and Prisma, it ensures a responsive, scalable, and efficient experience.",
   },
+];
+
+export const PROJECTS: Project[] = [
+  ...COMMUNITY,
+  ...HACKATHONS,
+  ...PERSONAL,
 ];

@@ -14,7 +14,7 @@ export const EXPERIENCE: ExperienceItem[] = [
         role: "Lead Organizer",
         company: "GDG on Campus",
         duration: "Sep 25 – Present",
-        location: "Rourkela, Odisha",
+        location: "NIT Rourkela",
         details: [
             "Enhancing and promoting the tech culture on campus by organizing impactful sessions and events. Leading the chapter of 30+ members and community of 800+ students to work towards goals that improve and promote community service, development, and unity.",
         ],

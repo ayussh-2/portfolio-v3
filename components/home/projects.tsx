@@ -11,7 +11,7 @@ import { Iphone } from "@/components/ui/iphone";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 import Link from "next/link";
-import { PROJECTS } from "@/config";
+import { PROJECTS, COMMUNITY, HACKATHONS, PERSONAL } from "@/config";
 import { Button } from "../ui/button";
 
 interface ProjectDetail {
@@ -110,24 +110,31 @@ export function ProjectCard({
                     </p>
                 </div>
                 <div className="flex items-end justify-between mt-auto pt-4">
-                    <div className="flex gap-2">
-                        {project.techStack.slice(0, 5).map((tech, i) =>
-                            tech.icon ? (
-                                <Tooltip key={i}>
-                                    <TooltipTrigger asChild>
-                                        <div className={`cursor-pointer opacity-50 hover:opacity-100 transition-opacity ${i >= 3 ? "hidden sm:block" : ""}`}>
-                                            <i
-                                                className={`${tech.icon} text-[12px]`}
-                                            />
-                                        </div>
-                                    </TooltipTrigger>
-                                    <TooltipContent side="bottom">
-                                        <p className="text-xs">{tech.title}</p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            ) : null,
-                        )}
-                    </div>
+                    <div className="flex items-end justify-between mt-auto pt-4">
+    {/* Replaced space-x-2 with gap-2 for better flexbox spacing */}
+    <div className="flex gap-2">
+        {project.techStack
+            .filter((tech) => !!tech.icon)
+            .slice(0, 5)
+            .map((tech, i) => (
+                <Tooltip key={i}>
+                    <TooltipTrigger asChild>
+                        <div 
+                            className={`cursor-pointer opacity-50 hover:opacity-100 transition-opacity ${
+                                i >= 3 ? "hidden sm:block" : ""
+                            }`}
+                        >
+                            <i className={`${tech.icon} text-[12px]`} />
+                        </div>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom">
+                        <p className="text-xs">{tech.title}</p>
+                    </TooltipContent>
+                </Tooltip>
+            ))
+        }
+    </div>
+</div>
                     <div className="group">
                         <Link
                             className="flex items-center gap-1 text-[12px] font-medium text-zinc-500 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors cursor-pointer shrink-0"
@@ -244,7 +251,12 @@ export function getLayoutItems(projects: any[]): {
 }
 
 export default function Projects() {
-    const layoutItems = getLayoutItems(PROJECTS.slice(0, 4));
+    const homeProjects = [
+        ...PERSONAL.slice(0, 2),
+        ...HACKATHONS.slice(0, 1),
+        ...COMMUNITY.slice(0, 1),
+    ];
+    const layoutItems = getLayoutItems(homeProjects);
 
     return (
         <section>

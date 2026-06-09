@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import type { HTMLAttributes } from "react"
 
 const SAFARI_WIDTH = 1203
@@ -7,7 +8,7 @@ const SCREEN_Y = 52
 const SCREEN_WIDTH = 1200
 const SCREEN_HEIGHT = 700
 
-// Calculated percentages
+// Calculated percentages for fallback
 const LEFT_PCT = (SCREEN_X / SAFARI_WIDTH) * 100
 const TOP_PCT = (SCREEN_Y / SAFARI_HEIGHT) * 100
 const WIDTH_PCT = (SCREEN_WIDTH / SAFARI_WIDTH) * 100
@@ -31,14 +32,37 @@ export function Safari({
   style,
   ...props
 }: SafariProps) {
+  const [aspectRatio, setAspectRatio] = useState<number>(1200 / 700)
+
+  useEffect(() => {
+    if (imageSrc) {
+      const img = new Image()
+      img.src = imageSrc
+      img.onload = () => {
+        if (img.naturalWidth && img.naturalHeight) {
+          setAspectRatio(img.naturalWidth / img.naturalHeight)
+        }
+      }
+    }
+  }, [imageSrc])
+
   const hasVideo = !!videoSrc
   const hasMedia = hasVideo || !!imageSrc
+
+  const dynamicImageHeight = 1200 / aspectRatio
+  const dynamicSafariHeight = 52 + dynamicImageHeight
+
+  // Calculated percentages
+  const leftPct = (SCREEN_X / SAFARI_WIDTH) * 100
+  const topPct = (SCREEN_Y / dynamicSafariHeight) * 100
+  const widthPct = (SCREEN_WIDTH / SAFARI_WIDTH) * 100
+  const heightPct = (dynamicImageHeight / dynamicSafariHeight) * 100
 
   return (
     <div
       className={`relative inline-block w-full align-middle leading-none ${className ?? ""}`}
       style={{
-        aspectRatio: `${SAFARI_WIDTH}/${SAFARI_HEIGHT}`,
+        aspectRatio: `${SAFARI_WIDTH}/${dynamicSafariHeight}`,
         ...style,
       }}
       {...props}
@@ -47,10 +71,10 @@ export function Safari({
         <div
           className="pointer-events-none absolute z-0 overflow-hidden"
           style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
+            left: `${leftPct}%`,
+            top: `${topPct}%`,
+            width: `${widthPct}%`,
+            height: `${heightPct}%`,
           }}
         >
           <video
@@ -69,10 +93,10 @@ export function Safari({
         <div
           className="pointer-events-none absolute z-0 overflow-hidden"
           style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
+            left: `${leftPct}%`,
+            top: `${topPct}%`,
+            width: `${widthPct}%`,
+            height: `${heightPct}%`,
             borderRadius: "0 0 11px 11px",
           }}
         >
@@ -85,7 +109,7 @@ export function Safari({
       )}
 
       <svg
-        viewBox={`0 0 ${SAFARI_WIDTH} ${SAFARI_HEIGHT}`}
+        viewBox={`0 0 ${SAFARI_WIDTH} ${dynamicSafariHeight}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="absolute inset-0 z-10 size-full"
@@ -97,22 +121,22 @@ export function Safari({
               x="0"
               y="0"
               width={SAFARI_WIDTH}
-              height={SAFARI_HEIGHT}
+              height={dynamicSafariHeight}
               fill="white"
             />
             <path
-              d="M1 52H1201V741C1201 747.075 1196.08 752 1190 752H12C5.92486 752 1 747.075 1 741V52Z"
+              d={`M1 52H1201V${dynamicSafariHeight - 12}C1201 ${dynamicSafariHeight - 5.925} 1196.08 ${dynamicSafariHeight - 1} 1190 ${dynamicSafariHeight - 1}H12C5.925 ${dynamicSafariHeight - 1} 1 ${dynamicSafariHeight - 5.925} 1 ${dynamicSafariHeight - 12}Z`}
               fill="black"
             />
           </mask>
 
           <clipPath id="path0">
-            <rect width={SAFARI_WIDTH} height={SAFARI_HEIGHT} fill="white" />
+            <rect width={SAFARI_WIDTH} height={dynamicSafariHeight} fill="white" />
           </clipPath>
 
           <clipPath id="roundedBottom">
             <path
-              d="M1 52H1201V741C1201 747.075 1196.08 752 1190 752H12C5.92486 752 1 747.075 1 741V52Z"
+              d={`M1 52H1201V${dynamicSafariHeight - 12}C1201 ${dynamicSafariHeight - 5.925} 1196.08 ${dynamicSafariHeight - 1} 1190 ${dynamicSafariHeight - 1}H12C5.925 ${dynamicSafariHeight - 1} 1 ${dynamicSafariHeight - 5.925} 1 ${dynamicSafariHeight - 12}Z`}
               fill="white"
             />
           </clipPath>
@@ -123,7 +147,7 @@ export function Safari({
           mask={hasMedia ? "url(#safariPunch)" : undefined}
         >
           <path
-            d="M0 52H1202V741C1202 747.627 1196.63 753 1190 753H12C5.37258 753 0 747.627 0 741V52Z"
+            d={`M0 52H1202V${dynamicSafariHeight - 12}C1202 ${dynamicSafariHeight - 5.373} 1196.63 ${dynamicSafariHeight} 1190 ${dynamicSafariHeight}H12C5.373 ${dynamicSafariHeight} 0 ${dynamicSafariHeight - 5.373} 0 ${dynamicSafariHeight - 12}Z`}
             className="fill-[#E5E5E5] dark:fill-[#404040]"
           />
           <path
