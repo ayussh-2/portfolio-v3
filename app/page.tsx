@@ -34,7 +34,7 @@ export default function Home() {
             }}
             default="none"
         >
-            <main className="w-full md:max-w-3xl mx-auto min-h-screen relative flex flex-col overflow-visible">
+            <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
                 <Intersection2>
                     <div className="relative min-h-screen w-full overflow-visible">
                         {/* <ProgressiveBlur height="70px" position="top" /> */}

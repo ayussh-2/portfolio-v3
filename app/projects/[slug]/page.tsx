@@ -1,13 +1,13 @@
 import { HeaderControls } from "@/components/header-controls";
 import { PROJECTS } from "@/config";
 import { notFound } from "next/navigation";
-import { ExternalLink } from "lucide-react";
 import Intersection2 from "@/components/pixel-perfect/intersection2";
 import { SeperatorInline } from "@/components/ui/seperator";
 import { Safari } from "@/components/ui/safari";
 import { Iphone } from "@/components/ui/iphone";
 import { TechBadge } from "@/components/ui/tech-badge";
 import SoftPillButton from "@/components/pixel-perfect/soft-pill-button";
+import ProjectLiveDemoButton from "@/components/project-live-demo-button";
 import { ViewTransition } from "react";
 
 interface ProjectPageProps {
@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             }}
             default="none"
         >
-            <main className="w-full md:max-w-3xl mx-auto min-h-screen relative flex flex-col overflow-visible">
+            <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
                 <Intersection2>
                     <div className="relative min-h-screen w-full overflow-visible  flex flex-col">
                         {/* Header Controls */}
@@ -116,20 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                     </div>
                                 </SoftPillButton>
                             )}
-                            {project.liveLink && (
-                                <SoftPillButton
-                                    as="a"
-                                    href={project.liveLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    variant="primary"
-                                    className="text-xs px-3.5 py-2 flex-1"
-                                >
-                                    <div className="flex items-center justify-center gap-2">
-                                        <ExternalLink size={14} /> Live Demo
-                                    </div>
-                                </SoftPillButton>
-                            )}
+                            <ProjectLiveDemoButton liveLink={project.liveLink} />
                         </div>
 
                         <SeperatorInline />
