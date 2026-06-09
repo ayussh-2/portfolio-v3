@@ -149,7 +149,7 @@ export const PROJECTS = [
   },
   {
     image:
-      "https://ik.imagekit.io/euurqxbuc/portfolio/Screenshot%202026-06-09%20212204.png",
+      "https://ik.imagekit.io/euurqxbuc/portfolio/Screenshot%202026-06-09%20215443.png",
     title: "CODE_LAB",
     slug: "code-lab",
     category: "personal",
