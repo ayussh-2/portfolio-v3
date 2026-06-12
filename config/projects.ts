@@ -166,9 +166,36 @@ export const HACKATHONS: Project[] = [
 ];
 
 export const PERSONAL: Project[] = [
+  {                                                                                                              
+      image: "https://github.com/user-attachments/assets/2260376a-70fc-49cf-830f-5d488fa457e3",                    
+      title: "AskRepo",                                                                                            
+      slug: "ask-repo",                                                                                            
+      category: "personal",                                                                                        
+      shortDesc: `A self-hosted browser extension and FastAPI developer tool that lets you chat with any GitHub    
+      repository in real time using AST-based chunking, local vector similarity search, and streaming LLM responses.
+  `,                                                                                                               
+      techStack: [                                                                                                 
+        { icon: "devicon-python-plain", title: "Python" },                                                         
+        { icon: "devicon-fastapi-plain", title: "FastAPI" },                                                       
+        { icon: "devicon-postgresql-plain", title: "PostgreSQL" },                                                 
+        { icon: "devicon-redis-plain", title: "Redis" },                                                           
+        { icon: "devicon-react-original", title: "React" },                                                        
+        { icon: "devicon-typescript-plain", title: "TypeScript" },                                                 
+        { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },                                           
+      ],                                                                                                           
+      githubLink: "https://github.com/ayussh-2/repo-assistant",                                                    
+      liveLink: "",                                                                                                
+      longDesc: `askRepo is an intelligent developer assistant designed to streamline codebase navigation and      
+  understanding. Composed of a React/TypeScript browser extension (built on WXT) and a Python FastAPI backend, it  
+  enables natural language chat directly inside a floating sidebar on any GitHub repository. Under the hood, the   
+  backend uses Tree-Sitter to perform AST-level parsing of files for precise logical chunking. Code chunks are     
+  embedded locally using Ollama and stored in a PostgreSQL database with the pgvector extension. Session histories 
+  and context window constraints are managed gracefully via Redis and Gemini context-summarization.`,
+      deviceType: "desktop",
+    },
   {
     image:
-      "https://ik.imagekit.io/euurqxbuc/portfolio/Screenshot%202026-06-09%20215443.png",
+      "https://github.com/user-attachments/assets/0bc2cd09-352b-44f9-83cc-f2688a672f9a",
     title: "CODE_LAB",
     slug: "code-lab",
     category: "personal",
