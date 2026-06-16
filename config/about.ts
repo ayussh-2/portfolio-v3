@@ -5,10 +5,10 @@ export const about = [
 ];
 
 export const subHeading =
-    "Passionate about building fast, scalable systems and intuitive user experiences";
+    "Building scalable backends, distributed systems, and AI-powered developer tools with Go and TypeScript.";
 
 export const RESUME =
-    "https://drive.google.com/file/d/1ntZqA9BFDVf1UBSlPikTuOM79lbaOIg-/view?usp=sharing";
+    "https://drive.google.com/file/d/1hQ1W3uqdoDzRsxFeyxQM7jF2KSSkKYSe/view?usp=sharing";
 
 export const MAIL =
     "https://mail.google.com/mail/?view=cm&fs=1&to=ayushatschool5%40gmail.com";

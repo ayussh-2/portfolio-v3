@@ -65,7 +65,7 @@ export default function Home() {
                         <SeperatorInline />
                         <Footer />
                         {/* <div className="h-10"></div>
-                        <ProgressiveBlur height="70px" position="bottom" /> */}
+                        <ProgressiveBlur height="30px" position="bottom" /> */}
                     </div>
                 </Intersection2>
             </main>
