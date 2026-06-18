@@ -30,7 +30,7 @@ export const COMMUNITY: Project[] = [
       { icon: "devicon-nodejs-plain", title: "Node.js" },
     ],
     githubLink: "https://github.com/dscnitrourkela/project-zucchini",
-    liveLink: "https://project-yogurt.vercel.app/",
+    liveLink: "https://project-zucchini-web.vercel.app/",
     longDesc:
       "NIT Rourkela’s annual literary and cultural festival—one of Odisha’s largest student-run events. Built with Turborepo, Next.js, Firebase, and Drizzle ORM",
   },
@@ -89,7 +89,7 @@ export const COMMUNITY: Project[] = [
       { icon: "devicon-postgresql-plain", title: "PostgreSQL" },
     ],
     githubLink: "https://github.com/dscnitrourkela/project-huckleberry",
-    liveLink: "https://dscnitrourkela.org/",
+    liveLink: "https://gdsc-nitr.netlify.app/",
     longDesc:
       "Project Huckleberry is the official website of DSC NIT Rourkela, built to showcase the community’s initiatives, events, and achievements through interactive animations.",
   },
