@@ -15,3 +15,6 @@ export const MAIL =
 
 export const DAY_BANNER="https://ik.imagekit.io/euurqxbuc/portfolio/day.webp"
 export const NIGHT_BANNER="https://ik.imagekit.io/euurqxbuc/portfolio/night.webp"
+
+export const DAY_AVATAR = "https://ik.imagekit.io/euurqxbuc/portfolio/ChatGPT%20Image%20Jun%2018,%202026,%2006_09_40%20PM.png"
+export const NIGHT_AVATAR = "https://ik.imagekit.io/euurqxbuc/portfolio/ChatGPT%20Image%20Jun%2018,%202026,%2006_10_37%20PM.png"

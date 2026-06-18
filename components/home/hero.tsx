@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
+import { DAY_AVATAR, NIGHT_AVATAR } from "@/config";
 import { Button } from "../ui/button";
 import { FlipWords } from "../ui/flip-words";
 import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
@@ -18,12 +19,14 @@ const avatarSizes = {
 type AvatarSize = keyof typeof avatarSizes;
 
 interface AvatarProps {
-    url: string;
+    url?: string;
+    dayUrl?: string;
+    nightUrl?: string;
     imgClass?: string;
     size?: AvatarSize;
 }
 
-export function Avatar({ url, imgClass, size = "md" }: AvatarProps) {
+export function Avatar({ url, dayUrl, nightUrl, imgClass, size = "md" }: AvatarProps) {
     const sizeConfig = avatarSizes[size];
     return (
         <div
@@ -37,13 +40,34 @@ export function Avatar({ url, imgClass, size = "md" }: AvatarProps) {
                     sizeConfig.class,
                 )}
             >
-                <Image
-                    src={url}
-                    alt="Profile"
-                    width={sizeConfig.px}
-                    height={sizeConfig.px}
-                    className={cn("w-full h-full object-cover", imgClass)}
-                />
+                {dayUrl && nightUrl ? (
+                    <>
+                        <Image
+                            src={dayUrl}
+                            alt="Profile"
+                            width={sizeConfig.px}
+                            height={sizeConfig.px}
+                            className={cn("w-full h-full object-cover block dark:hidden", imgClass)}
+                            priority
+                        />
+                        <Image
+                            src={nightUrl}
+                            alt="Profile"
+                            width={sizeConfig.px}
+                            height={sizeConfig.px}
+                            className={cn("w-full h-full object-cover hidden dark:block", imgClass)}
+                            priority
+                        />
+                    </>
+                ) : (
+                    <Image
+                        src={url || ""}
+                        alt="Profile"
+                        width={sizeConfig.px}
+                        height={sizeConfig.px}
+                        className={cn("w-full h-full object-cover", imgClass)}
+                    />
+                )}
             </div>
         </div>
     );
@@ -60,8 +84,9 @@ export default function Hero() {
         <section className="flex items-start justify-between w-full py-4 px-3">
             <div className="flex items-end justify-between gap-5">
                 <Avatar
-                    url={"https://github.com/ayussh-2.png"}
-                    imgClass={" dark:grayscale  "}
+                    dayUrl={DAY_AVATAR}
+                    nightUrl={NIGHT_AVATAR}
+                    
                 />
                 <div>
                     <h1 className="text-[20px] sm:text-[24px] font-bold text-zinc-800 dark:text-zinc-100 tracking-tight leading-none mb-0.5">
