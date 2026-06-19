@@ -9,18 +9,20 @@ export default function Banner() {
                 src={DAY_BANNER}
                 alt="Daytime banner"
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
                 priority
-                className="block object-cover dark:hidden"
+                className="object-cover dark:hidden"
             />
             <Image
                 src={NIGHT_BANNER}
                 alt="Nighttime banner"
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
                 priority
                 className="hidden object-cover dark:block"
             />
+            
         </div>
     );
 }
+
+
+// 

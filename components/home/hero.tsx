@@ -47,7 +47,7 @@ export function Avatar({ url, dayUrl, nightUrl, imgClass, size = "md" }: AvatarP
                             alt="Profile"
                             width={sizeConfig.px}
                             height={sizeConfig.px}
-                            className={cn("w-full h-full object-cover block dark:hidden", imgClass)}
+                            className={cn("w-full h-full object-cover scale-150 block dark:hidden", imgClass)}
                             priority
                         />
                         <Image
@@ -55,7 +55,7 @@ export function Avatar({ url, dayUrl, nightUrl, imgClass, size = "md" }: AvatarP
                             alt="Profile"
                             width={sizeConfig.px}
                             height={sizeConfig.px}
-                            className={cn("w-full h-full object-cover hidden dark:block", imgClass)}
+                            className={cn("w-full h-full object-cover scale-150 hidden dark:block", imgClass)}
                             priority
                         />
                     </>
