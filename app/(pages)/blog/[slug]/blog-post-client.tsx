@@ -19,6 +19,9 @@ export default function BlogPostClient({
   post,
   children,
 }: BlogPostClientProps) {
+  const wordCount = post.markdown ? post.markdown.trim().split(/\s+/).filter(Boolean).length : 0;
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
   return (
     <ViewTransition
       enter={{
@@ -41,15 +44,21 @@ export default function BlogPostClient({
             <SeperatorInline />
 
             <div className="py-4 px-3 flex flex-col">
-              {post.meta.date && (
-                <time className="text-xs text-zinc-400 dark:text-zinc-500 mb-2">
-                  {new Date(post.meta.date).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </time>
-              )}
+              <div className="flex items-center gap-1.5 text-xs text-zinc-400 dark:text-zinc-500 mb-2 font-medium">
+                {post.meta.date && (
+                  <>
+                    <time>
+                      {new Date(post.meta.date).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </time>
+                    <span>•</span>
+                  </>
+                )}
+                <span>{readingTime} min read</span>
+              </div>
               <h1 className="text-[24px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">
                 {post.meta.title}
               </h1>

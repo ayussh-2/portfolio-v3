@@ -9,9 +9,14 @@ import Intersection2 from "@/components/pixel-perfect/intersection2";
 import { SeperatorInline } from "@/components/ui/seperator";
 import { ViewTransition } from "react";
 import Skills from "@/components/home/skills";
+import Blogs, { HomePost } from "@/components/home/blogs";
 import Footer from "@/components/home/footer";
 
-export default function Home() {
+interface HomeClientProps {
+  posts: HomePost[];
+}
+
+export default function HomeClient({ posts }: HomeClientProps) {
   return (
     <ViewTransition
       enter={{
@@ -29,8 +34,6 @@ export default function Home() {
       <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
         <Intersection2>
           <div className="relative min-h-screen w-full overflow-visible">
-            {/* <ProgressiveBlur height="70px" position="top" /> */}
-
             <Banner />
             <SeperatorInline />
             <Hero />
@@ -54,10 +57,16 @@ export default function Home() {
             <div id="skills">
               <Skills />
             </div>
+            {posts.length > 0 && (
+              <>
+                <SeperatorInline />
+                <div id="blogs">
+                  <Blogs posts={posts} />
+                </div>
+              </>
+            )}
             <SeperatorInline />
             <Footer />
-            {/* <div className="h-10"></div>
-                        <ProgressiveBlur height="30px" position="bottom" /> */}
           </div>
         </Intersection2>
       </main>

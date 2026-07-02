@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@import "./bottom-fade.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -138,6 +140,7 @@
     --font-mono: var(--font-mono);
     --font-heading: var(--font-heading);
     --background: oklch(1 0 0);
+    --fade-bottom-height: 6rem;
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);

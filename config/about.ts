@@ -11,7 +11,7 @@ export const RESUME =
     "https://drive.google.com/file/d/1hQ1W3uqdoDzRsxFeyxQM7jF2KSSkKYSe/view?usp=sharing";
 
 export const MAIL =
-    "https://mail.google.com/mail/?view=cm&fs=1&to=ayushatschool5%40gmail.com";
+    "https://mail.google.com/mail/?view=cm&fs=1&to=ayushatschool5%40gmail.com&su=Inquiry%20from%20Portfolio&body=Hi%20Ayush%2C%0A%0AI%20was%20looking%20at%20your%20portfolio%20and%20wanted%20to%20reach%20out%20regarding%20...";
 
 export const DAY_BANNER="https://ik.imagekit.io/euurqxbuc/portfolio/ChatGPT%20Image%20Jun%2019,%202026,%2011_07_30%20AM.webp"
 export const NIGHT_BANNER="https://ik.imagekit.io/euurqxbuc/portfolio/ChatGPT%20Image%20Jun%2019,%202026,%2011_07_35%20AM.webp"

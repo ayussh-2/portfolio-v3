@@ -6,10 +6,10 @@ const databaseId = process.env.NOTION_DATABASE_ID;
 
 if (!token || !databaseId) {
     if (!token) {
-        throw new Error("Environment variable NOTION_TOKEN is missing. Please add it to your .env.local file.");
+        throw new Error("NOTION_TOKEN is missing");
     }
     if (!databaseId) {
-        throw new Error("Environment variable NOTION_DATABASE_ID is missing. Please add it to your .env.local file.");
+        throw new Error("NOTION_DATABASE_ID is missing");
     }
 }
 
