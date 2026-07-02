@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./styles/globals.css";
 
 import type { Metadata } from "next";
 
@@ -14,43 +14,43 @@ import { SEO_METADATA } from "@/config";
 export const metadata: Metadata = SEO_METADATA;
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html
-            lang="en"
-            className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-            suppressHydrationWarning
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
         >
-            <head>
-                <link
-                    rel="stylesheet"
-                    type="text/css"
-                    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-                />
-            </head>
-            <body>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange={false}
-                >
-                    <TooltipProvider>
-                        {children}
-                        <NavigationTracker />
-                        <CommandMenu />
-                        <Toaster
-                            className="font-sans"
-                            style={{
-                                fontFamily: "var(--font-sans)",
-                            }}
-                        />
-                    </TooltipProvider>
-                </ThemeProvider>
-            </body>
-        </html>
-    );
+          <TooltipProvider>
+            {children}
+            <NavigationTracker />
+            <CommandMenu />
+            <Toaster
+              className="font-sans"
+              style={{
+                fontFamily: "var(--font-sans)",
+              }}
+            />
+          </TooltipProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }

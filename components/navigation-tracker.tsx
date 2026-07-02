@@ -23,7 +23,7 @@ export function NavigationTracker() {
     useEffect(() => {
         if (typeof window !== "undefined") {
             const historyStr = sessionStorage.getItem("nav_history");
-            let history: string[] = historyStr ? JSON.parse(historyStr) : [];
+            const history: string[] = historyStr ? JSON.parse(historyStr) : [];
             
             // Record new history, preventing duplicate consecutive tracks
             if (history.length === 0 || history[history.length - 1] !== pathname) {
