@@ -7,6 +7,7 @@ import { DAY_AVATAR, NIGHT_AVATAR } from "@/config";
 import { Button } from "../ui/button";
 import { FlipWords } from "../ui/flip-words";
 import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
+import Link from "next/link";
 
 const avatarSizes = {
     xs: { class: "w-10 h-10 sm:w-12 sm:h-12", px: 44 },
@@ -103,6 +104,16 @@ export default function Hero() {
             </div>
 
             <div className="flex items-center justify-between gap-2" style={{ viewTransitionName: "site-header" }}>
+                <Link href="/blog">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        className="opacity-80 hover:opacity-100 cursor-pointer text-xs"
+                    >
+                        Blog
+                    </Button>
+                </Link>
+
                 <Button
                     variant={"outline"}
                     size={"sm"}

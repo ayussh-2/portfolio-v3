@@ -13,7 +13,7 @@ import {
     CommandSeparator,
 } from "@/components/ui/command";
 import { PROJECTS } from "@/config";
-import { FileText, Home, Folder, User, Briefcase, GitBranch, Code2 } from "lucide-react";
+import { FileText, Home, Folder, User, Briefcase, GitBranch, Code2, BookOpen } from "lucide-react";
 
 export function CommandMenu() {
     const [open, setOpen] = React.useState(false);
@@ -61,7 +61,7 @@ export function CommandMenu() {
         <CommandDialog open={open} onOpenChange={setOpen}>
             <Command>
                 <CommandInput placeholder="Type a command or search..." />
-                <CommandList className="border-t border-black/10 dark:border-white/10 mt-1">
+                <CommandList className="border-t border-black/10 dark:border-white/15 mt-1">
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Suggestions">
                         <CommandItem
@@ -77,6 +77,13 @@ export function CommandMenu() {
                         >
                             <Folder className="mr-2 h-4 w-4 opacity-70" />
                             <span>Projects Archive</span>
+                        </CommandItem>
+                        <CommandItem
+                            onSelect={() => runCommand(() => router.push("/blog"))}
+                            className="cursor-pointer"
+                        >
+                            <BookOpen className="mr-2 h-4 w-4 opacity-70" />
+                            <span>Blog</span>
                         </CommandItem>
                     </CommandGroup>
                     <CommandSeparator />
