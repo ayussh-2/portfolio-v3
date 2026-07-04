@@ -27,13 +27,13 @@ export default function Footer() {
     {
       id: "gmail",
       link: MAIL,
-      Icon: <GmailIcon className="size-3" />,
+      Icon: <GmailIcon className="size-4.5 md:size-3" />,
       title: "Gmail",
     },
     {
       id: "copy-email",
       link: "copy-email-action",
-      Icon: <Copy className="size-3" />,
+      Icon: <Copy className="size-4.5 md:size-3" />,
       title: "Copy Email",
       onClick: async () => {
         await navigator.clipboard.writeText(emailAddress);
@@ -45,15 +45,15 @@ export default function Footer() {
   const footerItems: FooterItem[] = [...SOCIALS, ...extras];
 
   return (
-    <footer className="w-full px-4 sm:px-8 pb-10 text-xs text-zinc-500 overflow-clip h-28">
+    <footer className="w-full px-4 sm:px-8 pb-10 text-xs text-zinc-500 overflow-clip h-36 md:h-28">
       <Intersection2>
         <div className="mx-auto flex w-full max-w-xl flex-col gap-4 px-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-center sm:text-left leading-tight">
+          <div className=" text-center sm:text-left leading-tight">
             <p className="-mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">
               Let&apos;s connect
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-2 sm:justify-end">
             {footerItems.map(({ id, Icon, link, title, onClick }) => (
               <HoverCard key={id} openDelay={80} closeDelay={40}>
                 <HoverCardTrigger asChild>
@@ -67,7 +67,7 @@ export default function Footer() {
                   >
                     <div className="flex items-center gap-2">
                       {typeof Icon === "string" ? (
-                        <i className={`${Icon} text-[12px]`} />
+                        <i className={`${Icon} text-[18px] md:text-[12px]`} />
                       ) : isValidElement(Icon) ? (
                         Icon
                       ) : null}

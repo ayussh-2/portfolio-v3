@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import { FlipWords } from "../ui/flip-words";
 import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
 import Link from "next/link";
+import SoftPillButton from "../pixel-perfect/soft-pill-button";
 
 const avatarSizes = {
   xs: { class: "w-10 h-10 sm:w-12 sm:h-12", px: 44 },
@@ -115,7 +116,7 @@ export default function Hero() {
         className="flex items-center justify-between gap-2"
         style={{ viewTransitionName: "site-header" }}
       >
-        <Button
+        {/* <Button
           variant={"outline"}
           size={"sm"}
           className="opacity-80 hover:opacity-100 cursor-pointer"
@@ -124,7 +125,20 @@ export default function Hero() {
           }}
         >
           <Command className="h-4 w-4" /> K
-        </Button>
+        </Button> */}
+
+        <SoftPillButton
+          variant="secondary"
+          // size="sm"
+          className="opacity-80 hover:opacity-100 cursor-pointer px-3 py-2 text-xs"
+          onClick={() => {
+            window.dispatchEvent(new CustomEvent("toggle-command-menu"));
+          }}
+        >
+          <div className="flex gap-1 items-center">
+            <Command size={14} /> K
+          </div>
+        </SoftPillButton>
 
         <AnimatedThemeToggler duration={500} />
 

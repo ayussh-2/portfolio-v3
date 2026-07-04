@@ -108,7 +108,7 @@ export const HACKATHONS: Project[] = [
       { icon: "devicon-go-original-wordmark", title: "Go" },
       { icon: "devicon-postgresql-plain", title: "PostgreSQL" },
       { icon: "devicon-docker-plain", title: "Docker" },
-      { icon: "devicon-nextjs-original", title: "Next.js" },
+      { icon: "devicon-nextjs-plain", title: "Next.js" },
       { icon: "devicon-azure-plain", title: "Azure" },
     ],
     githubLink: "https://github.com/ayussh-2/project-amobagan",
@@ -166,33 +166,34 @@ export const HACKATHONS: Project[] = [
 ];
 
 export const PERSONAL: Project[] = [
-  {                                                                                                              
-      image: "https://github.com/user-attachments/assets/2260376a-70fc-49cf-830f-5d488fa457e3",                    
-      title: "AskRepo",                                                                                            
-      slug: "ask-repo",                                                                                            
-      category: "personal",                                                                                        
-      shortDesc: `A self-hosted browser extension and FastAPI developer tool that lets you chat with any GitHub    
+  {
+    image:
+      "https://github.com/user-attachments/assets/2260376a-70fc-49cf-830f-5d488fa457e3",
+    title: "AskRepo",
+    slug: "ask-repo",
+    category: "personal",
+    shortDesc: `A self-hosted browser extension and FastAPI developer tool that lets you chat with any GitHub    
       repository in real time using AST-based chunking, local vector similarity search, and streaming LLM responses.
-  `,                                                                                                               
-      techStack: [                                                                                                 
-        { icon: "devicon-python-plain", title: "Python" },                                                         
-        { icon: "devicon-fastapi-plain", title: "FastAPI" },                                                       
-        { icon: "devicon-postgresql-plain", title: "PostgreSQL" },                                                 
-        { icon: "devicon-redis-plain", title: "Redis" },                                                           
-        { icon: "devicon-react-original", title: "React" },                                                        
-        { icon: "devicon-typescript-plain", title: "TypeScript" },                                                 
-        { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },                                           
-      ],                                                                                                           
-      githubLink: "https://github.com/ayussh-2/repo-assistant",                                                    
-      liveLink: "",                                                                                                
-      longDesc: `askRepo is an intelligent developer assistant designed to streamline codebase navigation and      
+  `,
+    techStack: [
+      { icon: "devicon-python-plain", title: "Python" },
+      { icon: "devicon-fastapi-plain", title: "FastAPI" },
+      { icon: "devicon-postgresql-plain", title: "PostgreSQL" },
+      { icon: "devicon-redis-plain", title: "Redis" },
+      { icon: "devicon-react-original", title: "React" },
+      { icon: "devicon-typescript-plain", title: "TypeScript" },
+      { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
+    ],
+    githubLink: "https://github.com/ayussh-2/repo-assistant",
+    liveLink: "",
+    longDesc: `askRepo is an intelligent developer assistant designed to streamline codebase navigation and      
   understanding. Composed of a React/TypeScript browser extension (built on WXT) and a Python FastAPI backend, it  
   enables natural language chat directly inside a floating sidebar on any GitHub repository. Under the hood, the   
   backend uses Tree-Sitter to perform AST-level parsing of files for precise logical chunking. Code chunks are     
   embedded locally using Ollama and stored in a PostgreSQL database with the pgvector extension. Session histories 
   and context window constraints are managed gracefully via Redis and Gemini context-summarization.`,
-      deviceType: "desktop",
-    },
+    deviceType: "desktop",
+  },
   {
     image:
       "https://github.com/user-attachments/assets/0bc2cd09-352b-44f9-83cc-f2688a672f9a",
@@ -203,7 +204,7 @@ export const PERSONAL: Project[] = [
   code-execution worker, real-time NATS queue, and a split-pane Monaco Editor workspace.`,
     techStack: [
       { icon: "devicon-go-original-wordmark", title: "Go" },
-      { icon: "devicon-nextjs-original", title: "Next.js" },
+      { icon: "devicon-nextjs-plain", title: "Next.js" },
       { icon: "devicon-docker-plain", title: "Docker" },
       { icon: "devicon-nats-plain", title: "NATS" },
       { icon: "devicon-postgresql-plain", title: "PostgreSQL" },
@@ -251,7 +252,7 @@ export const PERSONAL: Project[] = [
       { icon: "devicon-google-plain", title: "Google Gemini" },
       { icon: "devicon-supabase-plain", title: "Supabase" },
       { icon: "devicon-tailwindcss-original", title: "Native Wind" },
-      { icon: "devicon-zustand-original", title: "Zustand" },
+      { icon: "devicon-react-original", title: "Zustand" },
     ],
     githubLink: "https://github.com/ayussh-2/mello-notes",
     liveLink: "",
@@ -283,8 +284,4 @@ export const PERSONAL: Project[] = [
   },
 ];
 
-export const PROJECTS: Project[] = [
-  ...COMMUNITY,
-  ...HACKATHONS,
-  ...PERSONAL,
-];
+export const PROJECTS: Project[] = [...COMMUNITY, ...HACKATHONS, ...PERSONAL];

@@ -10,8 +10,6 @@ interface BlogPostPageProps {
   }>;
 }
 
-export const revalidate = 3600;
-
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
   return slugs.map((slug) => ({

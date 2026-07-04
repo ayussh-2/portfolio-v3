@@ -1,5 +1,11 @@
 "use server";
+
+import { cacheLife } from "next/cache";
+
 export async function getGithubContributions(username: string) {
+    "use cache";
+    cacheLife("hours");
+
     const headers = {
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         "Content-Type": "application/json",

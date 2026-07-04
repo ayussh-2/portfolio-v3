@@ -2,7 +2,8 @@ import { SeperatorInline } from "../ui/seperator";
 import { BlogTag } from "@/components/blog-card";
 import { Post } from "@/lib/notion";
 import Link from "next/link";
-import SoftPillButton from "../pixel-perfect/soft-pill-button";
+import { Button } from "../ui/button";
+import { CircleChevronRight } from "lucide-react";
 
 export interface HomePost extends Post {
   readingTime: number;
@@ -19,9 +20,19 @@ export default function Blogs({ posts }: BlogsProps) {
 
   return (
     <section className="w-full">
-      <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
-        Blogs
-      </h1>
+      <div className="flex items-center justify-between w-full">
+        <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
+          Blogs
+        </h1>
+        <Link href="/blog" transitionTypes={["nav-forward"]}>
+          <Button variant="link" className="p-2 mr-2">
+            <div className="flex items-center gap-2">
+              See More
+              <CircleChevronRight className="size-4" />
+            </div>
+          </Button>
+        </Link>
+      </div>
       <SeperatorInline />
 
       <div className="flex flex-col divide-black/30 dark:divide-white/[0.15] divide-y divide-dashed ">
@@ -70,12 +81,12 @@ export default function Blogs({ posts }: BlogsProps) {
         })}
       </div>
 
-      <SeperatorInline />
+      {/* <SeperatorInline />
       <div className="flex items-center justify-center py-3">
         <Link href="/blog" transitionTypes={["nav-forward"]}>
           <SoftPillButton as="div">See More</SoftPillButton>
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 }

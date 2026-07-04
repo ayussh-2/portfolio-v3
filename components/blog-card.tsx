@@ -26,7 +26,7 @@ export function BlogCard({ post }: BlogCardProps) {
     : null;
 
   return (
-    <article className="group relative p-5 hover:bg-zinc-50/40 dark:hover:bg-zinc-900/20 transition-all duration-200 ease-out">
+    <article className="group relative px-1 py-5 md:p-5 hover:bg-zinc-50/40 dark:hover:bg-zinc-900/20 transition-all duration-200 ease-out">
       <Link href={`/blog/${post.slug}`} className="block focus:outline-none">
         <div className="flex flex-col gap-1.5">
           <div className="flex flex-col gap-0.5">

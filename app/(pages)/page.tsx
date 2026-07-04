@@ -1,8 +1,6 @@
 import { getAllPosts, getPostBySlug } from "@/lib/notion";
 import HomeClient from "./home-client";
 
-export const revalidate = 3600;
-
 export default async function Home() {
   const allPosts = await getAllPosts();
 

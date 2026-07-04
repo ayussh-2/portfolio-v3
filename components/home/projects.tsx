@@ -5,13 +5,19 @@ import { Card, CardContent } from "../ui/card";
 import { SeperatorInline } from "../ui/seperator";
 import { motion } from "motion/react";
 import SoftPillButton from "../pixel-perfect/soft-pill-button";
-import { ArrowUpRight, Play } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowUpRightFromSquare,
+  CircleChevronRight,
+  Play,
+} from "lucide-react";
 import { Safari } from "@/components/ui/safari";
 import { Iphone } from "@/components/ui/iphone";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 import Link from "next/link";
 import { COMMUNITY, HACKATHONS, PERSONAL } from "@/config";
+import { Button } from "../ui/button";
 
 interface ProjectDetail {
   image: string;
@@ -53,12 +59,12 @@ export function ProjectCard({
 
       <div className="relative w-full flex flex-col ">
         <motion.div
-          className={`relative border-0 overflow-hidden rounded-t-xl flex items-center justify-center w-full ${isMobile ? "aspect-[433/882] py-4 md:aspect-auto md:h-[260px] md:py-3" : "aspect-[1203/753]"}`}
+          className={`relative border-0 overflow-hidden rounded-t-xl flex items-center justify-center w-full ${isMobile ? "h-[280px] py-4" : "aspect-[1203/753]"}`}
           initial="initial"
           whileHover="hover"
         >
           {isMobile ? (
-            <div className="w-[85%] md:w-[45%] md:max-w-[125px] rounded-4xl">
+            <div className="w-[120px] rounded-4xl">
               <ViewTransition
                 name={`project-mockup-${project.slug}`}
                 share="morph"
@@ -79,30 +85,10 @@ export function ProjectCard({
               </ViewTransition>
             </div>
           )}
-
-          {/* <motion.div
-                            className="absolute inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-20"
-                            variants={{
-                                initial: { opacity: 0 },
-                                hover: {
-                                    opacity: 1,
-                                    transition: { delay: 0.1, duration: 0.2 },
-                                },
-                            }}
-                        >
-                            <Link href={`/projects/${project.slug}`} transitionTypes={['nav-forward']}>
-                                <SoftPillButton
-                                    variant="primary"
-                                    className="text-xs px-3 py-2"
-                                >
-                                    <Play size={15} />
-                                </SoftPillButton>
-                            </Link>
-                        </motion.div> */}
         </motion.div>
       </div>
 
-      <CardContent className="pt-4 flex-1 flex flex-col justify-between pb-4">
+      <CardContent className="pt-4 px-0! flex-1 flex flex-col justify-between pb-4">
         <div>
           <h2 className="text-[15px] font-bold text-zinc-900 dark:text-zinc-100">
             {project.title}
@@ -121,13 +107,9 @@ export function ProjectCard({
                 .map((tech, i) => (
                   <Tooltip key={i}>
                     <TooltipTrigger asChild>
-                      <div
-                        className={`cursor-pointer opacity-50 hover:opacity-100 transition-opacity ${
-                          i >= 3 ? "hidden sm:block" : ""
-                        }`}
-                      >
+                      <div className="cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
                         <i
-                          className={`${tech.icon} text-[20px] md:text-[14px]`}
+                          className={`${tech.icon} text-[16px] md:text-[14px]`}
                         />
                       </div>
                     </TooltipTrigger>
@@ -161,8 +143,7 @@ export function getLayoutItems(projects: any[]): {
 }[] {
   let currentColMobile = 0;
   const mobileLayout = projects.map((project) => {
-    const isMobile = project.deviceType === "mobile";
-    const colSpan = isMobile ? 1 : 2;
+    const colSpan = 2;
     if (colSpan === 2 && currentColMobile === 1) {
       currentColMobile = 0;
     }
@@ -214,9 +195,7 @@ export function getLayoutItems(projects: any[]): {
     const desk = desktopLayout[index];
     const isMobile = project.deviceType === "mobile";
 
-    const colSpanClass = isMobile
-      ? "col-span-1 max-w-sm"
-      : "col-span-2 md:col-span-1 max-w-none md:max-w-sm";
+    const colSpanClass = "col-span-2 md:col-span-1 max-w-none md:max-w-sm";
 
     const mobBorderR = mob.colIndex === 0 && mob.colSpan === 1;
     const deskBorderR = desk.colIndex === 0;
@@ -264,11 +243,22 @@ export default function Projects() {
 
   return (
     <section>
-      <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
-        Projects
-      </h1>
+      <div className="flex items-center justify-between w-full">
+        <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
+          Projects
+        </h1>
+        <Link href="/projects" transitionTypes={["nav-forward"]}>
+          <Button variant="link" className="p-2 mr-2">
+            <div className="flex items-center gap-2">
+              See More
+              <CircleChevronRight className="size-4" />
+            </div>
+          </Button>
+        </Link>
+      </div>
+
       <SeperatorInline />
-      <div className="grid grid-cols-2 border-l border-r border-black/30 dark:border-white/15 border-dashed">
+      <div className="grid grid-cols-2 ">
         {layoutItems.map(({ project, colSpanClass, borderClass }, index) => (
           <ProjectCard
             key={index}
@@ -279,12 +269,12 @@ export default function Projects() {
           />
         ))}
       </div>
-      <SeperatorInline />
-      <div className="flex items-center justify-center py-3">
+      {/* <SeperatorInline /> */}
+      {/* <div className="flex items-center justify-center py-3">
         <Link href="/projects" transitionTypes={["nav-forward"]}>
           <SoftPillButton as="div">See More</SoftPillButton>
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 }

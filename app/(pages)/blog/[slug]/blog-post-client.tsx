@@ -92,9 +92,9 @@ export default function BlogPostClient({
               </article>
             </BlurFade>
 
-            <SeperatorInline />
+            {/* <SeperatorInline />
 
-            <div className="h-12" />
+            <div className="h-12" /> */}
           </div>
         </Intersection2>
       </main>

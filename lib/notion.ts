@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
+import { cacheLife } from "next/cache";
 
 const token = process.env.NOTION_TOKEN;
 const databaseId = process.env.NOTION_DATABASE_ID;
@@ -56,6 +57,8 @@ function parseNotionPage(page:any): Post | null {
 }
 
 export async function getAllPosts(): Promise<Post[]> {
+    "use cache";
+    cacheLife("hours");
     const response = await notionClient.dataSources.query({
         data_source_id: databaseId!,
         filter: {
@@ -93,6 +96,8 @@ export async function getAllPosts(): Promise<Post[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<{ meta: Post; markdown: string } | null> {
+    "use cache";
+    cacheLife("hours");
     const response = await notionClient.dataSources.query({
         data_source_id: databaseId!,
         filter: {
@@ -134,6 +139,8 @@ export async function getPostBySlug(slug: string): Promise<{ meta: Post; markdow
 }
 
 export async function getAllSlugs(): Promise<string[]> {
+    "use cache";
+    cacheLife("hours");
     const response = await notionClient.dataSources.query({
         data_source_id: databaseId!,
         filter: {

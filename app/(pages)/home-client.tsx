@@ -16,7 +16,7 @@ interface HomeClientProps {
   posts: HomePost[];
 }
 
-export const BLUR_FADE_STEP = 0.12;
+export const BLUR_FADE_STEP = 0.2;
 export default function HomeClient({ posts }: HomeClientProps) {
   return (
     <ViewTransition
@@ -59,27 +59,28 @@ export default function HomeClient({ posts }: HomeClientProps) {
                 </div>
               </BlurFade>
               <SeperatorInline />
-              <BlurFade delay={BLUR_FADE_STEP * 4}>
-                <div id="contributions">
-                  <Github />
-                </div>
-              </BlurFade>
-              <SeperatorInline />
-              <BlurFade delay={BLUR_FADE_STEP * 5}>
-                <div id="skills">
-                  <Skills />
-                </div>
-              </BlurFade>
               {posts.length > 0 && (
                 <>
                   <SeperatorInline />
-                  <BlurFade delay={BLUR_FADE_STEP * 6}>
+                  <BlurFade delay={BLUR_FADE_STEP * 4}>
                     <div id="blogs">
                       <Blogs posts={posts} />
                     </div>
                   </BlurFade>
                 </>
               )}
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 5}>
+                <div id="contributions">
+                  <Github />
+                </div>
+              </BlurFade>
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 6}>
+                <div id="skills">
+                  <Skills />
+                </div>
+              </BlurFade>
             </div>
           </Intersection2>
         </main>

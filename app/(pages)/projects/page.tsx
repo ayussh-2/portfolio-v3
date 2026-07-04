@@ -64,7 +64,11 @@ export default function ProjectsPage() {
 
                 return (
                   <section key={category.id} className=" flex flex-col">
-                    <PageTitle title={category.title} desc={category.desc} />
+                    <PageTitle
+                      title={category.title}
+                      desc={category.desc}
+                      className="px-3!"
+                    />
                     <div className="grid grid-cols-2 w-full ">
                       {getLayoutItems(categoryProjects).map(
                         ({ project, colSpanClass, borderClass }, idx) => (
