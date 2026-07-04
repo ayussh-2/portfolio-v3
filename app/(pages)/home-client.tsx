@@ -16,7 +16,7 @@ interface HomeClientProps {
   posts: HomePost[];
 }
 
-export const BLUR_FADE_STEP = 0.2;
+export const BLUR_FADE_STEP = 0.14;
 export default function HomeClient({ posts }: HomeClientProps) {
   return (
     <ViewTransition
