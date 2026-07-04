@@ -12,6 +12,9 @@ interface BlogPostPageProps {
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
+  if (slugs.length === 0) {
+    return [{ slug: "placeholder" }];
+  }
   return slugs.map((slug) => ({
     slug,
   }));
