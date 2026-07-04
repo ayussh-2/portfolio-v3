@@ -250,6 +250,8 @@
     .cn-toast {
         /* Base Background Colors */
         background-color: rgba(255, 255, 255, 0.9) !important; 
+        color:#0c0c0e !important;
+
         /* 
            Stacked Gradients (Top to Bottom):
            1. Diagonal Shimmer (0.4 opacity of the 0.12 white gradient)
