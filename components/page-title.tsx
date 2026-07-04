@@ -4,7 +4,7 @@ import { SeperatorInline } from "./ui/seperator";
 interface PageTitleProps {
   title: string;
   desc: string;
-  className: string;
+  className?: string;
 }
 export default function PageTitle({
   title,
