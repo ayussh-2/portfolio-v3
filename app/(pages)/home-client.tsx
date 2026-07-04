@@ -10,12 +10,13 @@ import { SeperatorInline } from "@/components/ui/seperator";
 import { ViewTransition } from "react";
 import Skills from "@/components/home/skills";
 import Blogs, { HomePost } from "@/components/home/blogs";
-import Footer from "@/components/home/footer";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 interface HomeClientProps {
   posts: HomePost[];
 }
 
+export const BLUR_FADE_STEP = 0.12;
 export default function HomeClient({ posts }: HomeClientProps) {
   return (
     <ViewTransition
@@ -31,45 +32,58 @@ export default function HomeClient({ posts }: HomeClientProps) {
       }}
       default="none"
     >
-      <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
-        <Intersection2>
-          <div className="relative min-h-screen w-full overflow-visible">
-            <Banner />
-            <SeperatorInline />
-            <Hero />
-            <SeperatorInline />
-            <div id="about">
-              <About />
-            </div>
-            <SeperatorInline />
-            <div id="experience">
-              <Experience />
-            </div>
-            <SeperatorInline />
-            <div id="projects">
-              <Projects />
-            </div>
-            <SeperatorInline />
-            <div id="contributions">
-              <Github />
-            </div>
-            <SeperatorInline />
-            <div id="skills">
-              <Skills />
-            </div>
-            {posts.length > 0 && (
-              <>
-                <SeperatorInline />
-                <div id="blogs">
-                  <Blogs posts={posts} />
+      <BlurFade>
+        <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible">
+          <Intersection2>
+            <div className="relative min-h-screen w-full overflow-visible">
+              <BlurFade>
+                <Banner />
+                <Hero />
+              </BlurFade>
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 1}>
+                <div id="about">
+                  <About />
                 </div>
-              </>
-            )}
-            <SeperatorInline />
-            <Footer />
-          </div>
-        </Intersection2>
-      </main>
+              </BlurFade>
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 2}>
+                <div id="experience">
+                  <Experience />
+                </div>
+              </BlurFade>
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 3}>
+                <div id="projects">
+                  <Projects />
+                </div>
+              </BlurFade>
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 4}>
+                <div id="contributions">
+                  <Github />
+                </div>
+              </BlurFade>
+              <SeperatorInline />
+              <BlurFade delay={BLUR_FADE_STEP * 5}>
+                <div id="skills">
+                  <Skills />
+                </div>
+              </BlurFade>
+              {posts.length > 0 && (
+                <>
+                  <SeperatorInline />
+                  <BlurFade delay={BLUR_FADE_STEP * 6}>
+                    <div id="blogs">
+                      <Blogs posts={posts} />
+                    </div>
+                  </BlurFade>
+                </>
+              )}
+            </div>
+          </Intersection2>
+        </main>
+      </BlurFade>
     </ViewTransition>
   );
 }

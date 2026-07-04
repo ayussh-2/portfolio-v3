@@ -67,7 +67,7 @@ export function ProjectCard({
               </ViewTransition>
             </div>
           ) : (
-            <div className="w-full shadow-2xl">
+            <div className="w-full dark:shadow-2xl">
               <ViewTransition
                 name={`project-mockup-${project.slug}`}
                 share="morph"
@@ -126,7 +126,9 @@ export function ProjectCard({
                           i >= 3 ? "hidden sm:block" : ""
                         }`}
                       >
-                        <i className={`${tech.icon} text-[12px]`} />
+                        <i
+                          className={`${tech.icon} text-[20px] md:text-[14px]`}
+                        />
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">

@@ -24,7 +24,7 @@ export default function Blogs({ posts }: BlogsProps) {
       </h1>
       <SeperatorInline />
 
-      <div className="flex flex-col divide-black/30 dark:divide-white/[0.15] divide-y divide-dashed border-l border-r border-black/30 dark:border-white/15 border-dashed">
+      <div className="flex flex-col divide-black/30 dark:divide-white/[0.15] divide-y divide-dashed ">
         {posts.map((post) => {
           const formattedDate = post.date
             ? new Date(post.date).toLocaleDateString("en-US", {
@@ -39,7 +39,10 @@ export default function Blogs({ posts }: BlogsProps) {
               key={post.slug}
               className="group relative p-5 hover:bg-zinc-50/40 dark:hover:bg-zinc-900/20 transition-all duration-200 ease-out"
             >
-              <Link href={`/blog/${post.slug}`} className="block focus:outline-none">
+              <Link
+                href={`/blog/${post.slug}`}
+                className="block focus:outline-none"
+              >
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-col gap-0.5">
                     <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors duration-150 leading-snug">

@@ -1,6 +1,5 @@
 import { toast } from "sonner";
-import Discord from "@/components/icons/discord";
-import LeetCode from "@/components/icons/leetcode";
+
 
 export const DISCORD_USER_NAME = "ayus.ssh";
 

@@ -32,11 +32,11 @@
             locale: "en_US",
             url: "https://github.com/ayussh-2",
             title: "Ayush | Software Engineer & Backend Developer",
-            description: "Software Engineer & Lead Organizer at GDG on Campus NIT Rourkela. Specialized in Go, TypeScript, and high-performance system architecture.",
+            description: "Software Engineer & Lead Organizer at GDG on Campus NIT Rourkela.",
             siteName: "Ayush Portfolio",
             images: [
                 {
-                    url: "https://ik.imagekit.io/euurqxbuc/portfolio/night.webp",
+                    url: "https://ik.imagekit.io/euurqxbuc/portfolio/ChatGPT%20Image%20Jul%204,%202026,%2001_54_59%20PM.webp",
                     width: 1200,
                     height: 630,
                     alt: "Ayush Portfolio Banner",
@@ -46,8 +46,8 @@
         twitter: {
             card: "summary_large_image",
             title: "Ayush | Software Engineer & Backend Developer",
-            description: "Software Engineer Intern & Lead Organizer at GDG on Campus NIT Rourkela. Specialized in Go, TypeScript, and high-performance system architecture.",
-            images: ["https://ik.imagekit.io/euurqxbuc/portfolio/night.webp"],
+            description: "Software Engineer & Lead Organizer at GDG on Campus NIT Rourkela.",
+            images: ["https://ik.imagekit.io/euurqxbuc/portfolio/ChatGPT%20Image%20Jul%204,%202026,%2001_54_59%20PM.webp"],
         },
         robots: {
             index: true,

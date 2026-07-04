@@ -1,17 +1,11 @@
 "use client";
 
-import { File, FileText, Mail } from "lucide-react";
+import { FileText } from "lucide-react";
 
-import {
-  about,
-  handleRedirect,
-  MAIL,
-  RESUME,
-  SOCIALS,
-  subHeading,
-} from "@/config";
+import { handleRedirect, MAIL, RESUME, SOCIALS, subHeading } from "@/config";
 
 import SoftPillButton from "../pixel-perfect/soft-pill-button";
+import GmailIcon from "../icons/gmail";
 
 export default function About() {
   return (
@@ -45,7 +39,7 @@ export default function About() {
           onClick={() => handleRedirect(MAIL)}
         >
           <div className="flex items-center gap-1">
-            <Mail size={12} /> Send an email ?
+            <GmailIcon className="size-4" /> Send an email ?
           </div>
         </SoftPillButton>
       </div>
