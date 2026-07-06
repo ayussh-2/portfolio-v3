@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import CodeBlock from "./mdx/code-block";
 import CodeHeader from "./code-header";
 import { createHeadingId } from "@/lib/markdown";
+import { cacheLife } from "next/cache";
 
 function getTextContent(children: React.ReactNode): string {
   if (typeof children === "string" || typeof children === "number") {
@@ -70,7 +71,9 @@ function cleanMarkdown(md: string): string {
   return md.replace(/<!--[\s\S]*?-->/g, "");
 }
 
-export function MDXContent({ source }: MDXContentProps) {
+export async function MDXContent({ source }: MDXContentProps) {
+  "use cache";
+  cacheLife("hours");
   const cleanedSource = cleanMarkdown(source);
   const headingOccurrences = new Map<string, number>();
   const components = {
