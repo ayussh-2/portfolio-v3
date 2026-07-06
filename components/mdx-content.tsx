@@ -26,13 +26,17 @@ function getTextContent(children: React.ReactNode): string {
 
 function createHeadingComponent(
   level: 1 | 2 | 3 | 4 | 5 | 6,
-  occurrences: Map<string, number>
+  occurrences: Map<string, number>,
 ) {
   const HeadingTag = `h${level}` as const;
 
   return (props: any) => {
-    const { children, className: incomingClassName, id: incomingId, ...rest } =
-      props;
+    const {
+      children,
+      className: incomingClassName,
+      id: incomingId,
+      ...rest
+    } = props;
     const title = getTextContent(children);
     const key = title.toLowerCase();
     const nextOccurrence = (occurrences.get(key) ?? 0) + 1;

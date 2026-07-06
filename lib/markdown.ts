@@ -27,7 +27,9 @@ export function createHeadingId(title: string, occurrence: number): string {
   return occurrence > 1 ? `${slug}-${occurrence}` : slug;
 }
 
-export function extractTableOfContents(markdown: string): TableOfContentsItem[] {
+export function extractTableOfContents(
+  markdown: string,
+): TableOfContentsItem[] {
   if (!markdown) return [];
 
   const items: TableOfContentsItem[] = [];
