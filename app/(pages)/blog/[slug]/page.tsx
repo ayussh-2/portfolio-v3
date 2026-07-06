@@ -46,7 +46,6 @@ export async function generateMetadata({
 }
 
 async function BlogPostContent({ params }: BlogPostPageProps) {
-  await new Promise(() => {});
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
