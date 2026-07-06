@@ -44,9 +44,9 @@ export default function BlogPostClient({
       }}
       default="none"
     >
-      <main className="w-full mx-auto min-h-screen relative flex flex-col overflow-visible max-w-xl! px-4 md:px-6">
+      <main className="w-full md:max-w-xl! mx-auto min-h-screen relative flex flex-col overflow-visible px-4 md:px-0">
         <Intersection2>
-          <div className="relative min-h-screen w-full overflow-visible py-4 md:py-6">
+          <div className="relative min-h-screen w-full overflow-visible">
             <div className="relative min-w-0">
               <BlurFade delay={BLUR_FADE_STEP * 0}>
                 <HeaderControls backText="Back to Blogs" />
