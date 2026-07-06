@@ -16,7 +16,7 @@ export function TechBadge({
   return (
     <div
       className={cn(
-        "cn-soft-badge flex w-fit items-center gap-1.5 px-2.5 py-1.5 rounded-[6px] border border-black/5 dark:border-white/5 backdrop-blur-[6px] shadow-sm",
+        "cn-soft-badge flex w-fit items-center gap-1.5 px-2.5 py-1.5 rounded-[6px] border border-black/5 dark:border-white/5 shadow-sm",
         className,
       )}
     >

@@ -73,7 +73,7 @@ export function ProjectCard({
               </ViewTransition>
             </div>
           ) : (
-            <div className="w-full dark:shadow-2xl">
+            <div className="w-full">
               <ViewTransition
                 name={`project-mockup-${project.slug}`}
                 share="morph"

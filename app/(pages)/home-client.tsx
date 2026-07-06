@@ -4,20 +4,25 @@ import Banner from "@/components/home/banner";
 import Experience from "@/components/home/experience";
 import Hero from "@/components/home/hero";
 import Projects from "@/components/home/projects";
-import Github from "@/components/home/github";
+import {
+  GitHubContributions,
+  GitHubContributionsFallback,
+} from "@/components/github-contributions";
+import type { Activity } from "@/components/contribution-graph";
 import Intersection2 from "@/components/pixel-perfect/intersection2";
 import { SeperatorInline } from "@/components/ui/seperator";
-import { ViewTransition } from "react";
+import { Suspense, ViewTransition } from "react";
 import Skills from "@/components/home/skills";
 import Blogs, { HomePost } from "@/components/home/blogs";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 interface HomeClientProps {
   posts: HomePost[];
+  contributions: Promise<Activity[]>;
 }
 
 export const BLUR_FADE_STEP = 0.14;
-export default function HomeClient({ posts }: HomeClientProps) {
+export default function HomeClient({ posts, contributions }: HomeClientProps) {
   return (
     <ViewTransition
       enter={{
@@ -72,13 +77,26 @@ export default function HomeClient({ posts }: HomeClientProps) {
               <SeperatorInline />
               <BlurFade delay={BLUR_FADE_STEP * 5}>
                 <div id="contributions">
-                  <Github />
+                  <section className="w-full">
+                    <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
+                      Contributions
+                    </h1>
+                    <SeperatorInline />
+                    <div className="px-3 py-6 w-full flex flex-col gap-4">
+                      <Suspense fallback={<GitHubContributionsFallback />}>
+                        <GitHubContributions
+                          contributions={contributions}
+                          githubProfileUrl="https://github.com/ayussh-2"
+                        />
+                      </Suspense>
+                    </div>
+                  </section>
                 </div>
               </BlurFade>
               <SeperatorInline />
               <BlurFade delay={BLUR_FADE_STEP * 6}>
                 <div id="skills">
-                  <Skills />
+                  <Skills />{" "}
                 </div>
               </BlurFade>
             </div>

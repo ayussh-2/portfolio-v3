@@ -57,7 +57,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
             {/* Project Device Mockup Visual */}
             <div className="py-8 flex justify-center items-center bg-zinc-50/50 dark:bg-zinc-950/20 border-l border-r border-dashed border-black/10 dark:border-white/10">
               {isMobile ? (
-                <div className="w-48 sm:w-56 shadow-2xl rounded-4xl">
+                <div className="w-48 sm:w-56 rounded-4xl">
                   <ViewTransition
                     name={`project-mockup-${project.slug}`}
                     share="morph"
@@ -66,7 +66,7 @@ export default function ProjectClient({ project }: ProjectClientProps) {
                   </ViewTransition>
                 </div>
               ) : (
-                <div className="w-full max-w-lg shadow-5xl rounded-lg overflow-hidden px-2">
+                <div className="w-full max-w-lg rounded-lg overflow-hidden px-2">
                   <ViewTransition
                     name={`project-mockup-${project.slug}`}
                     share="morph"

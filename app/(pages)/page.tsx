@@ -1,5 +1,6 @@
 import { getAllPosts, getPostBySlug } from "@/lib/notion";
 import HomeClient from "./home-client";
+import { getCachedContributions } from "@/lib/get-cached-contributions";
 
 export default async function Home() {
   const allPosts = await getAllPosts();
@@ -18,5 +19,7 @@ export default async function Home() {
     }),
   );
 
-  return <HomeClient posts={posts} />;
+  const contributionsPromise = getCachedContributions("ayussh-2");
+
+  return <HomeClient posts={posts} contributions={contributionsPromise} />;
 }
