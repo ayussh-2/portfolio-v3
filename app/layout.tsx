@@ -8,6 +8,7 @@ import { geistMono, geistSans } from "@/fonts";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CommandMenu } from "@/components/command-menu";
 import { NavigationTracker } from "@/components/navigation-tracker";
+import { ScrollToTop } from "@/components/scroll-to-top";
 
 import { SEO_METADATA } from "@/config";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
             {children}
             <NavigationTracker />
             <CommandMenu />
+            <ScrollToTop />
             <Toaster
               className="font-sans"
               style={{

@@ -3,6 +3,9 @@ import { getPostBySlug, getAllSlugs } from "@/lib/notion";
 import BlogPostClient from "./blog-post-client";
 import { Metadata } from "next";
 import { MDXContent } from "@/components/mdx-content";
+import { extractTableOfContents } from "@/lib/markdown";
+import { Suspense } from "react";
+import { Spinner } from "@/components/ui/spinner";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -42,7 +45,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+async function BlogPostContent({ params }: BlogPostPageProps) {
+  await new Promise(() => {});
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
@@ -50,9 +54,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const tocItems = extractTableOfContents(post.markdown);
+
   return (
-    <BlogPostClient post={post}>
+    <BlogPostClient post={post} tocItems={tocItems}>
       <MDXContent source={post.markdown} />
     </BlogPostClient>
+  );
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center text-sm text-zinc-400 dark:text-zinc-500 !max-w-xl mx-auto">
+          <Spinner />
+        </div>
+      }
+    >
+      <BlogPostContent params={params} />
+    </Suspense>
   );
 }

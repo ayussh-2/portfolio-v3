@@ -20,7 +20,7 @@ export default function NotFound() {
       }}
       default="none"
     >
-      <main className="w-full md:max-w-3xl mx-auto min-h-screen relative flex flex-col items-center justify-center overflow-visible">
+      <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col items-center justify-center overflow-visible">
         <Intersection2>
           <div className="min-h-[calc(100vh-12rem)] flex flex-col justify-center">
             <div className="flex-1 flex items-center justify-center p-8">

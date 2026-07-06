@@ -29,7 +29,7 @@ const transitionConfig = {
 export default function BlogClient({ posts }: BlogClientProps) {
   return (
     <ViewTransition {...transitionConfig} default="none">
-      <main className="w-full md:max-w-xl mx-auto min-h-screen relative flex flex-col overflow-visible px-4 md:px-0">
+      <main className="w-full md:max-w-xl! mx-auto min-h-screen relative flex flex-col overflow-visible px-4 md:px-0">
         <Intersection2>
           <div className="relative min-h-screen w-full overflow-visible flex flex-col">
             <HeaderControls backText="Home" />

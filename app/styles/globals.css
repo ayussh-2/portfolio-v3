@@ -390,3 +390,23 @@
 @utility link-underline {
     @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
 }
+
+.toc-scrollbar {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
+    scrollbar-gutter: stable;
+}
+.toc-scrollbar::-webkit-scrollbar {
+    display: block !important;
+    width: 5px !important;
+}
+.toc-scrollbar::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+.toc-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+}
+.toc-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+}
