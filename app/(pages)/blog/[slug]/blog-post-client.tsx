@@ -3,11 +3,11 @@
 import { HeaderControls } from "@/components/header-controls";
 import Intersection2 from "@/components/pixel-perfect/intersection2";
 import { SeperatorInline } from "@/components/ui/seperator";
-import { ViewTransition } from "react";
+import { useMemo, ViewTransition } from "react";
 import { Post } from "@/lib/notion";
 import { BlogTag } from "@/components/blog-card";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { BlogTocPanel } from "@/components/blog-toc-panel";
+import { TOCMinimap } from "@/components/toc-minimap";
 import type { TableOfContentsItem } from "@/lib/markdown";
 
 interface BlogPostClientProps {
@@ -29,6 +29,14 @@ export default function BlogPostClient({
     ? post.markdown.trim().split(/\s+/).filter(Boolean).length
     : 0;
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+  const minimapItems = useMemo(() => {
+    return tocItems.map((item) => ({
+      title: item.title,
+      url: `#${item.id}`,
+      depth: item.level,
+    }));
+  }, [tocItems]);
 
   return (
     <ViewTransition
@@ -100,7 +108,7 @@ export default function BlogPostClient({
                 </article>
               </BlurFade>
 
-              <BlogTocPanel items={tocItems} />
+              <TOCMinimap items={minimapItems} className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:block" />
             </div>
           </div>
         </Intersection2>

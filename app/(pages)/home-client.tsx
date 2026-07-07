@@ -66,7 +66,6 @@ export default function HomeClient({ posts, contributions }: HomeClientProps) {
               <SeperatorInline />
               {posts.length > 0 && (
                 <>
-                  <SeperatorInline />
                   <BlurFade delay={BLUR_FADE_STEP * 4}>
                     <div id="blogs">
                       <Blogs posts={posts} />
