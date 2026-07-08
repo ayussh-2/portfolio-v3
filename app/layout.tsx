@@ -45,6 +45,7 @@ export default function RootLayout({
             <CommandMenu />
             <ScrollToTop />
             <Toaster
+              position={"top-right"}
               className="font-sans"
               style={{
                 fontFamily: "var(--font-sans)",
