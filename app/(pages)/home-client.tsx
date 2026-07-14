@@ -15,6 +15,7 @@ import { Suspense, ViewTransition } from "react";
 import Skills from "@/components/home/skills";
 import Blogs, { HomePost } from "@/components/home/blogs";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { ContributionList } from "@/components/home/contribution";
 
 interface HomeClientProps {
   posts: HomePost[];
@@ -78,7 +79,7 @@ export default function HomeClient({ posts, contributions }: HomeClientProps) {
                 <div id="contributions">
                   <section className="w-full">
                     <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
-                      Contributions
+                      Github Activity
                     </h1>
                     <SeperatorInline />
                     <div className="px-3 py-6 w-full flex flex-col gap-4">
@@ -94,6 +95,19 @@ export default function HomeClient({ posts, contributions }: HomeClientProps) {
               </BlurFade>
               <SeperatorInline />
               <BlurFade delay={BLUR_FADE_STEP * 6}>
+                <div id="contributions">
+                  <section className="w-full">
+                    <h1 className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight my-2 px-3">
+                      Contributions
+                    </h1>
+                    <SeperatorInline />
+                    <ContributionList />
+                  </section>
+                </div>
+              </BlurFade>
+              <SeperatorInline />
+
+              <BlurFade delay={BLUR_FADE_STEP * 7}>
                 <div id="skills">
                   <Skills />{" "}
                 </div>
