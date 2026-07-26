@@ -212,7 +212,7 @@ export const PERSONAL: Project[] = [
       { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
     ],
     githubLink: "https://github.com/ayussh-2/code_lab",
-    liveLink: "",
+    liveLink: "https://codelab.ayussh.me/",
     longDesc: `CODE_LAB is a highly optimized interactive coding platform and online judge designed for developer practice. The backend is built using Go for high concurrency, managing a secure sandboxed execution
   environment via Docker. It utilizes NATS JetStream as a distributed queue to broker code running requests,   
   enabling scalable and asynchronous evaluation of user submissions. The system supports Python, Java,         
