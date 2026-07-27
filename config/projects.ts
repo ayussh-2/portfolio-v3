@@ -185,7 +185,7 @@ export const PERSONAL: Project[] = [
       { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
     ],
     githubLink: "https://github.com/ayussh-2/repo-assistant",
-    liveLink: "",
+    liveLink: "https://askrepo.ayussh.me",
     longDesc: `askRepo is an intelligent developer assistant designed to streamline codebase navigation and      
   understanding. Composed of a React/TypeScript browser extension (built on WXT) and a Python FastAPI backend, it  
   enables natural language chat directly inside a floating sidebar on any GitHub repository. Under the hood, the   
