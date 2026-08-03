@@ -168,30 +168,25 @@ export const HACKATHONS: Project[] = [
 export const PERSONAL: Project[] = [
   {
     image:
-      "https://github.com/user-attachments/assets/2260376a-70fc-49cf-830f-5d488fa457e3",
+      "https://ik.imagekit.io/9bnbyc64r/Screenshot%202026-08-03%20195445.png",
     title: "AskRepo",
     slug: "ask-repo",
     category: "personal",
-    shortDesc: `A self-hosted browser extension and FastAPI developer tool that lets you chat with any GitHub    
-      repository in real time using AST-based chunking, local vector similarity search, and streaming LLM responses.
-  `,
+    shortDesc:
+      "A high-performance repository intelligence platform featuring a Next.js 16 dashboard and FastAPI backend that lets developers chat with any GitHub codebase in real time using Tree-Sitter AST chunking, two-stage vector retrieval with FlashRank ONNX reranking, and multi-LLM streaming failover.",
     techStack: [
       { icon: "devicon-python-plain", title: "Python" },
       { icon: "devicon-fastapi-plain", title: "FastAPI" },
       { icon: "devicon-postgresql-plain", title: "PostgreSQL" },
       { icon: "devicon-redis-plain", title: "Redis" },
-      { icon: "devicon-react-original", title: "React" },
+      { icon: "devicon-nextjs-plain", title: "Next.js" },
       { icon: "devicon-typescript-plain", title: "TypeScript" },
       { icon: "devicon-tailwindcss-original", title: "Tailwind CSS" },
     ],
-    githubLink: "https://github.com/ayussh-2/repo-assistant",
-    liveLink: "https://askrepo.ayussh.me",
-    longDesc: `askRepo is an intelligent developer assistant designed to streamline codebase navigation and      
-  understanding. Composed of a React/TypeScript browser extension (built on WXT) and a Python FastAPI backend, it  
-  enables natural language chat directly inside a floating sidebar on any GitHub repository. Under the hood, the   
-  backend uses Tree-Sitter to perform AST-level parsing of files for precise logical chunking. Code chunks are     
-  embedded locally using Ollama and stored in a PostgreSQL database with the pgvector extension. Session histories 
-  and context window constraints are managed gracefully via Redis and Gemini context-summarization.`,
+    githubLink: "https://github.com/ayussh-2/AskRepo",
+    liveLink: "https://askrepo.ayussh.me/",
+    longDesc:
+      "askRepo is a decoupled, high-performance codebase intelligence platform designed for deep repository navigation and real-time QA. Built with a Next.js 16 web dashboard and a Python FastAPI backend, it enables developers to index any public GitHub repository and converse with it seamlessly. Under the hood, a decoupled worker pipeline parses code at the Abstract Syntax Tree (AST) level using Tree-Sitter to extract precise logical symbols (functions, classes, and methods). Vector embeddings, generated locally via Ollama (embeddinggemma) or serverless GPU on Modal.com, are stored in PostgreSQL with pgvector. Query retrieval uses a two-stage pipeline combining vector similarity search with FlashRank ONNX cross-encoder reranking (~10ms) for high-precision context retrieval. Streaming responses feature automatic multi-provider LLM failover (Google Gemini, Groq / Llama 3.3, Mistral AI), supported by Redis session caching, mandatory file & symbol source citations, and an offline LLM-as-a-Judge RAG evaluation suite.",
     deviceType: "desktop",
   },
   {
